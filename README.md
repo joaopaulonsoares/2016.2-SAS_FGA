@@ -3,11 +3,7 @@ O projeto tem como finalidade desenvolver um software para o gerenciamento de es
 
 O status do projeto pode ser acompanhando pelos seguintes indicadores:
 
-|Branch|Travis|Coveralls|Code Climate|
-|------|------|---------|------------|
-|Master|[![Build Status](https://travis-ci.org/fga-gpp-mds/2016.2-SAS_FGA.svg?branch=master)](https://travis-ci.org/fga-gpp-mds/2016.2-SAS_FGA)|[![Coverage Status](https://coveralls.io/repos/github/fga-gpp-mds/2016.2-SAS_FGA/badge.svg?branch=master)](https://coveralls.io/github/fga-gpp-mds/2016.2-SAS_FGA?branch=master)| --- |
-|Dev  |[![Build Status](https://travis-ci.org/fga-gpp-mds/2016.2-SAS_FGA.svg?branch=dev)](https://travis-ci.org/fga-gpp-mds/2016.2-SAS_FGA)| [![Coverage Status](https://coveralls.io/repos/github/fga-gpp-mds/2016.2-SAS_FGA/badge.svg?branch=dev)](https://coveralls.io/github/fga-gpp-mds/2016.2-SAS_FGA?branch=dev) | [![Code Climate](https://codeclimate.com/github/fga-gpp-mds/2016.2-SAS_FGA/badges/gpa.svg)](https://codeclimate.com/github/fga-gpp-mds/2016.2-SAS_FGA) |
-
+[![Coverage Status](https://coveralls.io/repos/github/joaopaulonsoares/2016.2-SAS_FGA/badge.svg?branch=master)](https://coveralls.io/github/joaopaulonsoares/2016.2-SAS_FGA?branch=master)
 
 # Configurar o ambiente
 A fim de configurar o ambiente em sua máquina pessoal, basta seguir os seguintes passos, tendo em vista o sistema operacional utilizado:
@@ -23,7 +19,7 @@ O ambiente de desenvolvimento pode ser configurado da seguinte maneira:
   - ```git clone https://github.com/fga-gpp-mds/2016.2-SAS_FGA.git```
 4. Entre no projeto clonado
   - ```cd 2016.2-SAS_FGA```
-5. Inicie o vagrant 
+5. Inicie o vagrant
   - ```vagrant up```
 6. Acesse a máquina via SSH
   - ```vagrant ssh```
@@ -31,7 +27,7 @@ O ambiente de desenvolvimento pode ser configurado da seguinte maneira:
   - ```cd /vagrant/```
 8. Crie um ambiente de desenvolvimento virtual
   - ```mkvirtualenv -p /urs/local/bin/python3.5 sas```
-9. Finalmente, instale as dependências necessárias 
+9. Finalmente, instale as dependências necessárias
   - ```pip install -r requirements.txt```
 
 ## Linux
@@ -49,6 +45,5 @@ Caso você já utilize o Linux como sistema operacional, siga:
   - ```python3 -m venv sas```
 6. Iniciar o ambiente virtual
   - ```. sas/bin/activate```
-7. Finalmente, instale as dependências necessárias 
+7. Finalmente, instale as dependências necessárias
   - ```pip install -r requirements.txt```
-
