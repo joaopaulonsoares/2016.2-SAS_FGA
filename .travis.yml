@@ -28,4 +28,4 @@ before_script:
 # command to run tests
 script:
     - docker-compose start
-    - docker-compose exec web python3 manage.py test
+    - docker-compose exec web python3 sas/manage.py test
