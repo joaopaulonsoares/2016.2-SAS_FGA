@@ -42,3 +42,4 @@ six==1.10.0
 traitlets==4.2.2
 wcwidth==0.1.7
 wrapt==1.10.8
+psycopg2
