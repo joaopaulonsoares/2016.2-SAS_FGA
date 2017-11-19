@@ -1,0 +1,52 @@
+---
+- hosts: "web"
+  vars:
+    dbname: postgree
+    dbuser: postgree
+    dbpassword: postgree
+    django_dir: code/
+    project_path: code/
+  remote_user: ubuntu
+  tasks:
+    - name: "Instalando Dependências"
+      become: true
+      apt:
+        name: "{{item}}"
+      with_items:
+        - postgresql
+        - postgresql-contrib
+        - libpq-dev
+        - python-psycopg2
+        - python-pip
+
+    - name: Criando Base da Dados
+      become: true
+      become_user: postgres
+      postgresql_db: name={{ dbname }}
+
+    - name: Criando usuário
+      become: true
+      become_user: postgres
+      postgresql_user: name={{ dbuser }} password={{ dbpassword }} state=present role_attr_flags=NOSUPERUSER,CREATEDB
+
+    - name: Provisionando usuário com permissões no banco
+      become: true
+      become_user: postgres
+      postgresql_user: user={{ dbuser }} db={{ dbname }} priv=ALL
+
+    # - name: Instalando django
+    #   become: true
+    #   pip:
+    #     name: django
+    #     version: 1.11
+
+    # - name: Mudando arquivo
+    #   template:
+    #     src: templates/settings.py.j2
+    #     dest: /vagrant/djangobasico/settings.py
+
+    # - name: Django makemigrations
+    #   django_manage: command=makemigrations app_path={{ project_path }}
+    #
+    # - name: Django migrate
+    #   django_manage: command=migrate app_path={{ project_path }}

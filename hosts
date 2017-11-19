@@ -1,0 +1,4 @@
+This is the Host File.
+
+[web]
+192.168.1.10 ansible_ssh_user=user ansible_ssh_pass=pass
