@@ -21,17 +21,17 @@ class Command(BaseCommand):
     def handle(self, *args, **options):
         output = super(Command, self).handle(*args, **options)
         if options["user_fixtures"]:
-            call_command('loaddata', 'user/fixtures/permissions.json')
-            call_command('loaddata', 'user/fixtures/group.json')
-            call_command('loaddata', 'user/fixtures/user.json')
-            call_command('loaddata', 'user/fixtures/users.json')
-            call_command('loaddata', 'user/fixtures/userprofile.json')
-            call_command('loaddata', 'user/fixtures/settings.json')
+            call_command('loaddata', 'sas/user/fixtures/permissions.json')
+            call_command('loaddata', 'sas/user/fixtures/group.json')
+            call_command('loaddata', 'sas/user/fixtures/user.json')
+            call_command('loaddata', 'sas/user/fixtures/users.json')
+            call_command('loaddata', 'sas/user/fixtures/userprofile.json')
+            call_command('loaddata', 'sas/user/fixtures/settings.json')
 
         if options["booking_fixtures"]:
-            call_command('loaddata', 'booking/fixtures/buildings.json')
-            call_command('loaddata', 'booking/fixtures/places.json')
-            call_command('loaddata', 'booking/fixtures/bookTimes.json')
-            call_command('loaddata', 'booking/fixtures/bookings.json')
+            call_command('loaddata', 'sas/booking/fixtures/buildings.json')
+            call_command('loaddata', 'sas/booking/fixtures/places.json')
+            call_command('loaddata', 'sas/booking/fixtures/bookTimes.json')
+            call_command('loaddata', 'sas/booking/fixtures/bookings.json')
 
         return output
