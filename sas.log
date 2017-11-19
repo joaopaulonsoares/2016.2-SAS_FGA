@@ -2669,3 +2669,763 @@ LINE 1: ...ng_building"."id", "booking_building"."name" FROM "booking_b...
                 AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
                 AND pg_catalog.pg_table_is_visible(c.oid); args=None
 [19/Nov/2017 11:32:16] DEBUG [django.db.backends:90] (0.002) SELECT "django_migrations"."app", "django_migrations"."name" FROM "django_migrations"; args=()
+[19/Nov/2017 11:44:45] DEBUG [django.db.backends:90] (0.002) 
+            SELECT c.relname, c.relkind
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid); args=None
+[19/Nov/2017 11:44:45] DEBUG [django.db.backends.schema:103] CREATE TABLE "django_migrations" ("id" serial NOT NULL PRIMARY KEY, "app" varchar(255) NOT NULL, "name" varchar(255) NOT NULL, "applied" timestamp with time zone NOT NULL); (params None)
+[19/Nov/2017 11:44:45] DEBUG [django.db.backends:90] (0.097) CREATE TABLE "django_migrations" ("id" serial NOT NULL PRIMARY KEY, "app" varchar(255) NOT NULL, "name" varchar(255) NOT NULL, "applied" timestamp with time zone NOT NULL); args=None
+[19/Nov/2017 11:44:45] DEBUG [django.db.backends:90] (0.000) SELECT "django_migrations"."app", "django_migrations"."name" FROM "django_migrations"; args=()
+[19/Nov/2017 11:44:45] DEBUG [django.db.backends:90] (0.002) 
+            SELECT c.relname, c.relkind
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid); args=None
+[19/Nov/2017 11:44:45] DEBUG [django.db.backends:90] (0.000) SELECT "django_migrations"."app", "django_migrations"."name" FROM "django_migrations"; args=()
+[19/Nov/2017 11:44:45] DEBUG [django.db.backends:90] (0.001) 
+            SELECT c.relname, c.relkind
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid); args=None
+[19/Nov/2017 11:44:45] DEBUG [django.db.backends:90] (0.000) SELECT "django_migrations"."app", "django_migrations"."name" FROM "django_migrations"; args=()
+[19/Nov/2017 11:44:46] DEBUG [django.db.backends.schema:103] CREATE TABLE "django_content_type" ("id" serial NOT NULL PRIMARY KEY, "name" varchar(100) NOT NULL, "app_label" varchar(100) NOT NULL, "model" varchar(100) NOT NULL); (params None)
+[19/Nov/2017 11:44:46] DEBUG [django.db.backends:90] (0.062) CREATE TABLE "django_content_type" ("id" serial NOT NULL PRIMARY KEY, "name" varchar(100) NOT NULL, "app_label" varchar(100) NOT NULL, "model" varchar(100) NOT NULL); args=None
+[19/Nov/2017 11:44:46] DEBUG [django.db.backends.schema:103] ALTER TABLE "django_content_type" ADD CONSTRAINT "django_content_type_app_label_76bd3d3b_uniq" UNIQUE ("app_label", "model"); (params [])
+[19/Nov/2017 11:44:46] DEBUG [django.db.backends:90] (0.053) ALTER TABLE "django_content_type" ADD CONSTRAINT "django_content_type_app_label_76bd3d3b_uniq" UNIQUE ("app_label", "model"); args=[]
+[19/Nov/2017 11:44:46] DEBUG [django.db.backends:90] (0.001) 
+            SELECT c.relname, c.relkind
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid); args=None
+[19/Nov/2017 11:44:46] DEBUG [django.db.backends:90] (0.001) INSERT INTO "django_migrations" ("app", "name", "applied") VALUES ('contenttypes', '0001_initial', '2017-11-19T13:44:46.144560+00:00'::timestamptz) RETURNING "django_migrations"."id"; args=('contenttypes', '0001_initial', datetime.datetime(2017, 11, 19, 13, 44, 46, 144560, tzinfo=<UTC>))
+[19/Nov/2017 11:44:46] DEBUG [django.db.backends.schema:103] CREATE TABLE "auth_permission" ("id" serial NOT NULL PRIMARY KEY, "name" varchar(50) NOT NULL, "content_type_id" integer NOT NULL, "codename" varchar(100) NOT NULL); (params None)
+[19/Nov/2017 11:44:46] DEBUG [django.db.backends:90] (0.043) CREATE TABLE "auth_permission" ("id" serial NOT NULL PRIMARY KEY, "name" varchar(50) NOT NULL, "content_type_id" integer NOT NULL, "codename" varchar(100) NOT NULL); args=None
+[19/Nov/2017 11:44:46] DEBUG [django.db.backends.schema:103] CREATE TABLE "auth_group" ("id" serial NOT NULL PRIMARY KEY, "name" varchar(80) NOT NULL UNIQUE); (params None)
+[19/Nov/2017 11:44:46] DEBUG [django.db.backends:90] (0.074) CREATE TABLE "auth_group" ("id" serial NOT NULL PRIMARY KEY, "name" varchar(80) NOT NULL UNIQUE); args=None
+[19/Nov/2017 11:44:46] DEBUG [django.db.backends.schema:103] CREATE TABLE "auth_group_permissions" ("id" serial NOT NULL PRIMARY KEY, "group_id" integer NOT NULL, "permission_id" integer NOT NULL); (params None)
+[19/Nov/2017 11:44:46] DEBUG [django.db.backends:90] (0.070) CREATE TABLE "auth_group_permissions" ("id" serial NOT NULL PRIMARY KEY, "group_id" integer NOT NULL, "permission_id" integer NOT NULL); args=None
+[19/Nov/2017 11:44:46] DEBUG [django.db.backends.schema:103] CREATE TABLE "auth_user" ("id" serial NOT NULL PRIMARY KEY, "password" varchar(128) NOT NULL, "last_login" timestamp with time zone NOT NULL, "is_superuser" boolean NOT NULL, "username" varchar(30) NOT NULL UNIQUE, "first_name" varchar(30) NOT NULL, "last_name" varchar(30) NOT NULL, "email" varchar(75) NOT NULL, "is_staff" boolean NOT NULL, "is_active" boolean NOT NULL, "date_joined" timestamp with time zone NOT NULL); (params None)
+[19/Nov/2017 11:44:46] DEBUG [django.db.backends:90] (0.057) CREATE TABLE "auth_user" ("id" serial NOT NULL PRIMARY KEY, "password" varchar(128) NOT NULL, "last_login" timestamp with time zone NOT NULL, "is_superuser" boolean NOT NULL, "username" varchar(30) NOT NULL UNIQUE, "first_name" varchar(30) NOT NULL, "last_name" varchar(30) NOT NULL, "email" varchar(75) NOT NULL, "is_staff" boolean NOT NULL, "is_active" boolean NOT NULL, "date_joined" timestamp with time zone NOT NULL); args=None
+[19/Nov/2017 11:44:46] DEBUG [django.db.backends.schema:103] CREATE TABLE "auth_user_groups" ("id" serial NOT NULL PRIMARY KEY, "user_id" integer NOT NULL, "group_id" integer NOT NULL); (params None)
+[19/Nov/2017 11:44:46] DEBUG [django.db.backends:90] (0.039) CREATE TABLE "auth_user_groups" ("id" serial NOT NULL PRIMARY KEY, "user_id" integer NOT NULL, "group_id" integer NOT NULL); args=None
+[19/Nov/2017 11:44:46] DEBUG [django.db.backends.schema:103] CREATE TABLE "auth_user_user_permissions" ("id" serial NOT NULL PRIMARY KEY, "user_id" integer NOT NULL, "permission_id" integer NOT NULL); (params None)
+[19/Nov/2017 11:44:46] DEBUG [django.db.backends:90] (0.034) CREATE TABLE "auth_user_user_permissions" ("id" serial NOT NULL PRIMARY KEY, "user_id" integer NOT NULL, "permission_id" integer NOT NULL); args=None
+[19/Nov/2017 11:44:46] DEBUG [django.db.backends.schema:103] ALTER TABLE "auth_permission" ADD CONSTRAINT "auth_permiss_content_type_id_2f476e4b_fk_django_content_type_id" FOREIGN KEY ("content_type_id") REFERENCES "django_content_type" ("id") DEFERRABLE INITIALLY DEFERRED; (params [])
+[19/Nov/2017 11:44:46] DEBUG [django.db.backends:90] (0.002) ALTER TABLE "auth_permission" ADD CONSTRAINT "auth_permiss_content_type_id_2f476e4b_fk_django_content_type_id" FOREIGN KEY ("content_type_id") REFERENCES "django_content_type" ("id") DEFERRABLE INITIALLY DEFERRED; args=[]
+[19/Nov/2017 11:44:46] DEBUG [django.db.backends.schema:103] ALTER TABLE "auth_permission" ADD CONSTRAINT "auth_permission_content_type_id_01ab375a_uniq" UNIQUE ("content_type_id", "codename"); (params [])
+[19/Nov/2017 11:44:46] DEBUG [django.db.backends:90] (0.036) ALTER TABLE "auth_permission" ADD CONSTRAINT "auth_permission_content_type_id_01ab375a_uniq" UNIQUE ("content_type_id", "codename"); args=[]
+[19/Nov/2017 11:44:46] DEBUG [django.db.backends.schema:103] CREATE INDEX "auth_permission_417f1b1c" ON "auth_permission" ("content_type_id"); (params [])
+[19/Nov/2017 11:44:46] DEBUG [django.db.backends:90] (0.057) CREATE INDEX "auth_permission_417f1b1c" ON "auth_permission" ("content_type_id"); args=[]
+[19/Nov/2017 11:44:46] DEBUG [django.db.backends.schema:103] CREATE INDEX "auth_group_name_a6ea08ec_like" ON "auth_group" ("name" varchar_pattern_ops); (params [])
+[19/Nov/2017 11:44:46] DEBUG [django.db.backends:90] (0.036) CREATE INDEX "auth_group_name_a6ea08ec_like" ON "auth_group" ("name" varchar_pattern_ops); args=[]
+[19/Nov/2017 11:44:46] DEBUG [django.db.backends.schema:103] ALTER TABLE "auth_group_permissions" ADD CONSTRAINT "auth_group_permissions_group_id_b120cbf9_fk_auth_group_id" FOREIGN KEY ("group_id") REFERENCES "auth_group" ("id") DEFERRABLE INITIALLY DEFERRED; (params [])
+[19/Nov/2017 11:44:46] DEBUG [django.db.backends:90] (0.001) ALTER TABLE "auth_group_permissions" ADD CONSTRAINT "auth_group_permissions_group_id_b120cbf9_fk_auth_group_id" FOREIGN KEY ("group_id") REFERENCES "auth_group" ("id") DEFERRABLE INITIALLY DEFERRED; args=[]
+[19/Nov/2017 11:44:46] DEBUG [django.db.backends.schema:103] ALTER TABLE "auth_group_permissions" ADD CONSTRAINT "auth_group_permiss_permission_id_84c5c92e_fk_auth_permission_id" FOREIGN KEY ("permission_id") REFERENCES "auth_permission" ("id") DEFERRABLE INITIALLY DEFERRED; (params [])
+[19/Nov/2017 11:44:46] DEBUG [django.db.backends:90] (0.001) ALTER TABLE "auth_group_permissions" ADD CONSTRAINT "auth_group_permiss_permission_id_84c5c92e_fk_auth_permission_id" FOREIGN KEY ("permission_id") REFERENCES "auth_permission" ("id") DEFERRABLE INITIALLY DEFERRED; args=[]
+[19/Nov/2017 11:44:46] DEBUG [django.db.backends.schema:103] ALTER TABLE "auth_group_permissions" ADD CONSTRAINT "auth_group_permissions_group_id_0cd325b0_uniq" UNIQUE ("group_id", "permission_id"); (params [])
+[19/Nov/2017 11:44:46] DEBUG [django.db.backends:90] (0.049) ALTER TABLE "auth_group_permissions" ADD CONSTRAINT "auth_group_permissions_group_id_0cd325b0_uniq" UNIQUE ("group_id", "permission_id"); args=[]
+[19/Nov/2017 11:44:46] DEBUG [django.db.backends.schema:103] CREATE INDEX "auth_group_permissions_0e939a4f" ON "auth_group_permissions" ("group_id"); (params [])
+[19/Nov/2017 11:44:46] DEBUG [django.db.backends:90] (0.036) CREATE INDEX "auth_group_permissions_0e939a4f" ON "auth_group_permissions" ("group_id"); args=[]
+[19/Nov/2017 11:44:46] DEBUG [django.db.backends.schema:103] CREATE INDEX "auth_group_permissions_8373b171" ON "auth_group_permissions" ("permission_id"); (params [])
+[19/Nov/2017 11:44:46] DEBUG [django.db.backends:90] (0.041) CREATE INDEX "auth_group_permissions_8373b171" ON "auth_group_permissions" ("permission_id"); args=[]
+[19/Nov/2017 11:44:46] DEBUG [django.db.backends.schema:103] CREATE INDEX "auth_user_username_6821ab7c_like" ON "auth_user" ("username" varchar_pattern_ops); (params [])
+[19/Nov/2017 11:44:46] DEBUG [django.db.backends:90] (0.099) CREATE INDEX "auth_user_username_6821ab7c_like" ON "auth_user" ("username" varchar_pattern_ops); args=[]
+[19/Nov/2017 11:44:46] DEBUG [django.db.backends.schema:103] ALTER TABLE "auth_user_groups" ADD CONSTRAINT "auth_user_groups_user_id_6a12ed8b_fk_auth_user_id" FOREIGN KEY ("user_id") REFERENCES "auth_user" ("id") DEFERRABLE INITIALLY DEFERRED; (params [])
+[19/Nov/2017 11:44:46] DEBUG [django.db.backends:90] (0.001) ALTER TABLE "auth_user_groups" ADD CONSTRAINT "auth_user_groups_user_id_6a12ed8b_fk_auth_user_id" FOREIGN KEY ("user_id") REFERENCES "auth_user" ("id") DEFERRABLE INITIALLY DEFERRED; args=[]
+[19/Nov/2017 11:44:46] DEBUG [django.db.backends.schema:103] ALTER TABLE "auth_user_groups" ADD CONSTRAINT "auth_user_groups_group_id_97559544_fk_auth_group_id" FOREIGN KEY ("group_id") REFERENCES "auth_group" ("id") DEFERRABLE INITIALLY DEFERRED; (params [])
+[19/Nov/2017 11:44:46] DEBUG [django.db.backends:90] (0.001) ALTER TABLE "auth_user_groups" ADD CONSTRAINT "auth_user_groups_group_id_97559544_fk_auth_group_id" FOREIGN KEY ("group_id") REFERENCES "auth_group" ("id") DEFERRABLE INITIALLY DEFERRED; args=[]
+[19/Nov/2017 11:44:46] DEBUG [django.db.backends.schema:103] ALTER TABLE "auth_user_groups" ADD CONSTRAINT "auth_user_groups_user_id_94350c0c_uniq" UNIQUE ("user_id", "group_id"); (params [])
+[19/Nov/2017 11:44:46] DEBUG [django.db.backends:90] (0.045) ALTER TABLE "auth_user_groups" ADD CONSTRAINT "auth_user_groups_user_id_94350c0c_uniq" UNIQUE ("user_id", "group_id"); args=[]
+[19/Nov/2017 11:44:46] DEBUG [django.db.backends.schema:103] CREATE INDEX "auth_user_groups_e8701ad4" ON "auth_user_groups" ("user_id"); (params [])
+[19/Nov/2017 11:44:46] DEBUG [django.db.backends:90] (0.030) CREATE INDEX "auth_user_groups_e8701ad4" ON "auth_user_groups" ("user_id"); args=[]
+[19/Nov/2017 11:44:46] DEBUG [django.db.backends.schema:103] CREATE INDEX "auth_user_groups_0e939a4f" ON "auth_user_groups" ("group_id"); (params [])
+[19/Nov/2017 11:44:46] DEBUG [django.db.backends:90] (0.039) CREATE INDEX "auth_user_groups_0e939a4f" ON "auth_user_groups" ("group_id"); args=[]
+[19/Nov/2017 11:44:46] DEBUG [django.db.backends.schema:103] ALTER TABLE "auth_user_user_permissions" ADD CONSTRAINT "auth_user_user_permissions_user_id_a95ead1b_fk_auth_user_id" FOREIGN KEY ("user_id") REFERENCES "auth_user" ("id") DEFERRABLE INITIALLY DEFERRED; (params [])
+[19/Nov/2017 11:44:46] DEBUG [django.db.backends:90] (0.001) ALTER TABLE "auth_user_user_permissions" ADD CONSTRAINT "auth_user_user_permissions_user_id_a95ead1b_fk_auth_user_id" FOREIGN KEY ("user_id") REFERENCES "auth_user" ("id") DEFERRABLE INITIALLY DEFERRED; args=[]
+[19/Nov/2017 11:44:46] DEBUG [django.db.backends.schema:103] ALTER TABLE "auth_user_user_permissions" ADD CONSTRAINT "auth_user_user_per_permission_id_1fbb5f2c_fk_auth_permission_id" FOREIGN KEY ("permission_id") REFERENCES "auth_permission" ("id") DEFERRABLE INITIALLY DEFERRED; (params [])
+[19/Nov/2017 11:44:46] DEBUG [django.db.backends:90] (0.001) ALTER TABLE "auth_user_user_permissions" ADD CONSTRAINT "auth_user_user_per_permission_id_1fbb5f2c_fk_auth_permission_id" FOREIGN KEY ("permission_id") REFERENCES "auth_permission" ("id") DEFERRABLE INITIALLY DEFERRED; args=[]
+[19/Nov/2017 11:44:46] DEBUG [django.db.backends.schema:103] ALTER TABLE "auth_user_user_permissions" ADD CONSTRAINT "auth_user_user_permissions_user_id_14a6b632_uniq" UNIQUE ("user_id", "permission_id"); (params [])
+[19/Nov/2017 11:44:47] DEBUG [django.db.backends:90] (0.039) ALTER TABLE "auth_user_user_permissions" ADD CONSTRAINT "auth_user_user_permissions_user_id_14a6b632_uniq" UNIQUE ("user_id", "permission_id"); args=[]
+[19/Nov/2017 11:44:47] DEBUG [django.db.backends.schema:103] CREATE INDEX "auth_user_user_permissions_e8701ad4" ON "auth_user_user_permissions" ("user_id"); (params [])
+[19/Nov/2017 11:44:47] DEBUG [django.db.backends:90] (0.107) CREATE INDEX "auth_user_user_permissions_e8701ad4" ON "auth_user_user_permissions" ("user_id"); args=[]
+[19/Nov/2017 11:44:47] DEBUG [django.db.backends.schema:103] CREATE INDEX "auth_user_user_permissions_8373b171" ON "auth_user_user_permissions" ("permission_id"); (params [])
+[19/Nov/2017 11:44:47] DEBUG [django.db.backends:90] (0.029) CREATE INDEX "auth_user_user_permissions_8373b171" ON "auth_user_user_permissions" ("permission_id"); args=[]
+[19/Nov/2017 11:44:47] DEBUG [django.db.backends:90] (0.001) 
+            SELECT c.relname, c.relkind
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid); args=None
+[19/Nov/2017 11:44:47] DEBUG [django.db.backends:90] (0.000) INSERT INTO "django_migrations" ("app", "name", "applied") VALUES ('auth', '0001_initial', '2017-11-19T13:44:47.177003+00:00'::timestamptz) RETURNING "django_migrations"."id"; args=('auth', '0001_initial', datetime.datetime(2017, 11, 19, 13, 44, 47, 177003, tzinfo=<UTC>))
+[19/Nov/2017 11:44:47] DEBUG [django.db.backends.schema:103] CREATE TABLE "django_admin_log" ("id" serial NOT NULL PRIMARY KEY, "action_time" timestamp with time zone NOT NULL, "object_id" text NULL, "object_repr" varchar(200) NOT NULL, "action_flag" smallint NOT NULL CHECK ("action_flag" >= 0), "change_message" text NOT NULL, "content_type_id" integer NULL, "user_id" integer NOT NULL); (params None)
+[19/Nov/2017 11:44:47] DEBUG [django.db.backends:90] (0.183) CREATE TABLE "django_admin_log" ("id" serial NOT NULL PRIMARY KEY, "action_time" timestamp with time zone NOT NULL, "object_id" text NULL, "object_repr" varchar(200) NOT NULL, "action_flag" smallint NOT NULL CHECK ("action_flag" >= 0), "change_message" text NOT NULL, "content_type_id" integer NULL, "user_id" integer NOT NULL); args=None
+[19/Nov/2017 11:44:47] DEBUG [django.db.backends.schema:103] ALTER TABLE "django_admin_log" ADD CONSTRAINT "django_admin_content_type_id_c4bce8eb_fk_django_content_type_id" FOREIGN KEY ("content_type_id") REFERENCES "django_content_type" ("id") DEFERRABLE INITIALLY DEFERRED; (params [])
+[19/Nov/2017 11:44:47] DEBUG [django.db.backends:90] (0.001) ALTER TABLE "django_admin_log" ADD CONSTRAINT "django_admin_content_type_id_c4bce8eb_fk_django_content_type_id" FOREIGN KEY ("content_type_id") REFERENCES "django_content_type" ("id") DEFERRABLE INITIALLY DEFERRED; args=[]
+[19/Nov/2017 11:44:47] DEBUG [django.db.backends.schema:103] ALTER TABLE "django_admin_log" ADD CONSTRAINT "django_admin_log_user_id_c564eba6_fk_auth_user_id" FOREIGN KEY ("user_id") REFERENCES "auth_user" ("id") DEFERRABLE INITIALLY DEFERRED; (params [])
+[19/Nov/2017 11:44:47] DEBUG [django.db.backends:90] (0.001) ALTER TABLE "django_admin_log" ADD CONSTRAINT "django_admin_log_user_id_c564eba6_fk_auth_user_id" FOREIGN KEY ("user_id") REFERENCES "auth_user" ("id") DEFERRABLE INITIALLY DEFERRED; args=[]
+[19/Nov/2017 11:44:47] DEBUG [django.db.backends.schema:103] CREATE INDEX "django_admin_log_417f1b1c" ON "django_admin_log" ("content_type_id"); (params [])
+[19/Nov/2017 11:44:47] DEBUG [django.db.backends:90] (0.162) CREATE INDEX "django_admin_log_417f1b1c" ON "django_admin_log" ("content_type_id"); args=[]
+[19/Nov/2017 11:44:47] DEBUG [django.db.backends.schema:103] CREATE INDEX "django_admin_log_e8701ad4" ON "django_admin_log" ("user_id"); (params [])
+[19/Nov/2017 11:44:47] DEBUG [django.db.backends:90] (0.037) CREATE INDEX "django_admin_log_e8701ad4" ON "django_admin_log" ("user_id"); args=[]
+[19/Nov/2017 11:44:47] DEBUG [django.db.backends:90] (0.001) 
+            SELECT c.relname, c.relkind
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid); args=None
+[19/Nov/2017 11:44:47] DEBUG [django.db.backends:90] (0.001) INSERT INTO "django_migrations" ("app", "name", "applied") VALUES ('admin', '0001_initial', '2017-11-19T13:44:47.597787+00:00'::timestamptz) RETURNING "django_migrations"."id"; args=('admin', '0001_initial', datetime.datetime(2017, 11, 19, 13, 44, 47, 597787, tzinfo=<UTC>))
+[19/Nov/2017 11:44:47] DEBUG [django.db.backends.schema:103] ALTER TABLE "django_admin_log" ALTER COLUMN "action_time" SET DEFAULT %s; (params [datetime.datetime(2017, 11, 19, 13, 44, 47, 617417, tzinfo=<UTC>)])
+[19/Nov/2017 11:44:47] DEBUG [django.db.backends:90] (0.001) ALTER TABLE "django_admin_log" ALTER COLUMN "action_time" SET DEFAULT '2017-11-19T13:44:47.617417+00:00'::timestamptz; args=[datetime.datetime(2017, 11, 19, 13, 44, 47, 617417, tzinfo=<UTC>)]
+[19/Nov/2017 11:44:47] DEBUG [django.db.backends.schema:103] ALTER TABLE "django_admin_log" ALTER COLUMN "action_time" DROP DEFAULT; (params [])
+[19/Nov/2017 11:44:47] DEBUG [django.db.backends:90] (0.000) ALTER TABLE "django_admin_log" ALTER COLUMN "action_time" DROP DEFAULT; args=[]
+[19/Nov/2017 11:44:47] DEBUG [django.db.backends:90] (0.001) 
+            SELECT c.relname, c.relkind
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid); args=None
+[19/Nov/2017 11:44:47] DEBUG [django.db.backends:90] (0.000) INSERT INTO "django_migrations" ("app", "name", "applied") VALUES ('admin', '0002_logentry_remove_auto_add', '2017-11-19T13:44:47.631178+00:00'::timestamptz) RETURNING "django_migrations"."id"; args=('admin', '0002_logentry_remove_auto_add', datetime.datetime(2017, 11, 19, 13, 44, 47, 631178, tzinfo=<UTC>))
+[19/Nov/2017 11:44:47] DEBUG [django.db.backends.schema:103] ALTER TABLE "django_content_type" ALTER COLUMN "name" DROP NOT NULL; (params [])
+[19/Nov/2017 11:44:47] DEBUG [django.db.backends:90] (0.002) ALTER TABLE "django_content_type" ALTER COLUMN "name" DROP NOT NULL; args=[]
+[19/Nov/2017 11:44:47] DEBUG [django.db.backends.schema:103] ALTER TABLE "django_content_type" DROP COLUMN "name" CASCADE; (params [])
+[19/Nov/2017 11:44:47] DEBUG [django.db.backends:90] (0.001) ALTER TABLE "django_content_type" DROP COLUMN "name" CASCADE; args=[]
+[19/Nov/2017 11:44:47] DEBUG [django.db.backends:90] (0.001) 
+            SELECT c.relname, c.relkind
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid); args=None
+[19/Nov/2017 11:44:47] DEBUG [django.db.backends:90] (0.000) INSERT INTO "django_migrations" ("app", "name", "applied") VALUES ('contenttypes', '0002_remove_content_type_name', '2017-11-19T13:44:47.697815+00:00'::timestamptz) RETURNING "django_migrations"."id"; args=('contenttypes', '0002_remove_content_type_name', datetime.datetime(2017, 11, 19, 13, 44, 47, 697815, tzinfo=<UTC>))
+[19/Nov/2017 11:44:47] DEBUG [django.db.backends.schema:103] ALTER TABLE "auth_permission" ALTER COLUMN "name" TYPE varchar(255) USING "name"::varchar(255); (params [])
+[19/Nov/2017 11:44:47] DEBUG [django.db.backends:90] (0.001) ALTER TABLE "auth_permission" ALTER COLUMN "name" TYPE varchar(255) USING "name"::varchar(255); args=[]
+[19/Nov/2017 11:44:47] DEBUG [django.db.backends:90] (0.001) 
+            SELECT c.relname, c.relkind
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid); args=None
+[19/Nov/2017 11:44:47] DEBUG [django.db.backends:90] (0.000) INSERT INTO "django_migrations" ("app", "name", "applied") VALUES ('auth', '0002_alter_permission_name_max_length', '2017-11-19T13:44:47.730875+00:00'::timestamptz) RETURNING "django_migrations"."id"; args=('auth', '0002_alter_permission_name_max_length', datetime.datetime(2017, 11, 19, 13, 44, 47, 730875, tzinfo=<UTC>))
+[19/Nov/2017 11:44:47] DEBUG [django.db.backends.schema:103] ALTER TABLE "auth_user" ALTER COLUMN "email" TYPE varchar(254) USING "email"::varchar(254); (params [])
+[19/Nov/2017 11:44:47] DEBUG [django.db.backends:90] (0.001) ALTER TABLE "auth_user" ALTER COLUMN "email" TYPE varchar(254) USING "email"::varchar(254); args=[]
+[19/Nov/2017 11:44:47] DEBUG [django.db.backends:90] (0.001) 
+            SELECT c.relname, c.relkind
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid); args=None
+[19/Nov/2017 11:44:47] DEBUG [django.db.backends:90] (0.001) INSERT INTO "django_migrations" ("app", "name", "applied") VALUES ('auth', '0003_alter_user_email_max_length', '2017-11-19T13:44:47.764345+00:00'::timestamptz) RETURNING "django_migrations"."id"; args=('auth', '0003_alter_user_email_max_length', datetime.datetime(2017, 11, 19, 13, 44, 47, 764345, tzinfo=<UTC>))
+[19/Nov/2017 11:44:47] DEBUG [django.db.backends:90] (0.001) 
+            SELECT c.relname, c.relkind
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid); args=None
+[19/Nov/2017 11:44:47] DEBUG [django.db.backends:90] (0.001) INSERT INTO "django_migrations" ("app", "name", "applied") VALUES ('auth', '0004_alter_user_username_opts', '2017-11-19T13:44:47.787762+00:00'::timestamptz) RETURNING "django_migrations"."id"; args=('auth', '0004_alter_user_username_opts', datetime.datetime(2017, 11, 19, 13, 44, 47, 787762, tzinfo=<UTC>))
+[19/Nov/2017 11:44:47] DEBUG [django.db.backends.schema:103] ALTER TABLE "auth_user" ALTER COLUMN "last_login" DROP NOT NULL; (params [])
+[19/Nov/2017 11:44:47] DEBUG [django.db.backends:90] (0.001) ALTER TABLE "auth_user" ALTER COLUMN "last_login" DROP NOT NULL; args=[]
+[19/Nov/2017 11:44:47] DEBUG [django.db.backends:90] (0.001) 
+            SELECT c.relname, c.relkind
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid); args=None
+[19/Nov/2017 11:44:47] DEBUG [django.db.backends:90] (0.000) INSERT INTO "django_migrations" ("app", "name", "applied") VALUES ('auth', '0005_alter_user_last_login_null', '2017-11-19T13:44:47.819805+00:00'::timestamptz) RETURNING "django_migrations"."id"; args=('auth', '0005_alter_user_last_login_null', datetime.datetime(2017, 11, 19, 13, 44, 47, 819805, tzinfo=<UTC>))
+[19/Nov/2017 11:44:47] DEBUG [django.db.backends:90] (0.001) 
+            SELECT c.relname, c.relkind
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid); args=None
+[19/Nov/2017 11:44:47] DEBUG [django.db.backends:90] (0.000) INSERT INTO "django_migrations" ("app", "name", "applied") VALUES ('auth', '0006_require_contenttypes_0002', '2017-11-19T13:44:47.830838+00:00'::timestamptz) RETURNING "django_migrations"."id"; args=('auth', '0006_require_contenttypes_0002', datetime.datetime(2017, 11, 19, 13, 44, 47, 830838, tzinfo=<UTC>))
+[19/Nov/2017 11:44:47] DEBUG [django.db.backends:90] (0.001) 
+            SELECT c.relname, c.relkind
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid); args=None
+[19/Nov/2017 11:44:47] DEBUG [django.db.backends:90] (0.000) INSERT INTO "django_migrations" ("app", "name", "applied") VALUES ('auth', '0007_alter_validators_add_error_messages', '2017-11-19T13:44:47.852902+00:00'::timestamptz) RETURNING "django_migrations"."id"; args=('auth', '0007_alter_validators_add_error_messages', datetime.datetime(2017, 11, 19, 13, 44, 47, 852902, tzinfo=<UTC>))
+[19/Nov/2017 11:44:47] DEBUG [django.db.backends.schema:103] ALTER TABLE "auth_user" ALTER COLUMN "username" TYPE varchar(150) USING "username"::varchar(150); (params [])
+[19/Nov/2017 11:44:47] DEBUG [django.db.backends:90] (0.092) ALTER TABLE "auth_user" ALTER COLUMN "username" TYPE varchar(150) USING "username"::varchar(150); args=[]
+[19/Nov/2017 11:44:47] DEBUG [django.db.backends:90] (0.001) 
+            SELECT c.relname, c.relkind
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid); args=None
+[19/Nov/2017 11:44:47] DEBUG [django.db.backends:90] (0.000) INSERT INTO "django_migrations" ("app", "name", "applied") VALUES ('auth', '0008_alter_user_username_max_length', '2017-11-19T13:44:47.986734+00:00'::timestamptz) RETURNING "django_migrations"."id"; args=('auth', '0008_alter_user_username_max_length', datetime.datetime(2017, 11, 19, 13, 44, 47, 986734, tzinfo=<UTC>))
+[19/Nov/2017 11:44:47] DEBUG [django.db.backends.schema:103] CREATE TABLE "django_session" ("session_key" varchar(40) NOT NULL PRIMARY KEY, "session_data" text NOT NULL, "expire_date" timestamp with time zone NOT NULL); (params None)
+[19/Nov/2017 11:44:48] DEBUG [django.db.backends:90] (0.126) CREATE TABLE "django_session" ("session_key" varchar(40) NOT NULL PRIMARY KEY, "session_data" text NOT NULL, "expire_date" timestamp with time zone NOT NULL); args=None
+[19/Nov/2017 11:44:48] DEBUG [django.db.backends.schema:103] CREATE INDEX "django_session_de54fa62" ON "django_session" ("expire_date"); (params [])
+[19/Nov/2017 11:44:48] DEBUG [django.db.backends:90] (0.033) CREATE INDEX "django_session_de54fa62" ON "django_session" ("expire_date"); args=[]
+[19/Nov/2017 11:44:48] DEBUG [django.db.backends.schema:103] CREATE INDEX "django_session_session_key_c0390e0f_like" ON "django_session" ("session_key" varchar_pattern_ops); (params [])
+[19/Nov/2017 11:44:48] DEBUG [django.db.backends:90] (0.025) CREATE INDEX "django_session_session_key_c0390e0f_like" ON "django_session" ("session_key" varchar_pattern_ops); args=[]
+[19/Nov/2017 11:44:48] DEBUG [django.db.backends:90] (0.001) 
+            SELECT c.relname, c.relkind
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid); args=None
+[19/Nov/2017 11:44:48] DEBUG [django.db.backends:90] (0.000) INSERT INTO "django_migrations" ("app", "name", "applied") VALUES ('sessions', '0001_initial', '2017-11-19T13:44:48.196881+00:00'::timestamptz) RETURNING "django_migrations"."id"; args=('sessions', '0001_initial', datetime.datetime(2017, 11, 19, 13, 44, 48, 196881, tzinfo=<UTC>))
+[19/Nov/2017 11:44:48] DEBUG [django.db.backends.schema:103] CREATE TABLE "user_settings" ("id" serial NOT NULL PRIMARY KEY, "start_semester" date NOT NULL, "end_semester" date NOT NULL); (params None)
+[19/Nov/2017 11:44:48] DEBUG [django.db.backends:90] (0.030) CREATE TABLE "user_settings" ("id" serial NOT NULL PRIMARY KEY, "start_semester" date NOT NULL, "end_semester" date NOT NULL); args=None
+[19/Nov/2017 11:44:48] DEBUG [django.db.backends.schema:103] CREATE TABLE "user_userprofile" ("id" serial NOT NULL PRIMARY KEY, "registration_number" varchar(20) NOT NULL UNIQUE, "category" varchar(20) NOT NULL, "engineering" varchar(15) NOT NULL, "user_id" integer NOT NULL UNIQUE); (params None)
+[19/Nov/2017 11:44:48] DEBUG [django.db.backends:90] (0.194) CREATE TABLE "user_userprofile" ("id" serial NOT NULL PRIMARY KEY, "registration_number" varchar(20) NOT NULL UNIQUE, "category" varchar(20) NOT NULL, "engineering" varchar(15) NOT NULL, "user_id" integer NOT NULL UNIQUE); args=None
+[19/Nov/2017 11:44:48] DEBUG [django.db.backends.schema:103] ALTER TABLE "user_userprofile" ADD CONSTRAINT "user_userprofile_user_id_2474538d_fk_auth_user_id" FOREIGN KEY ("user_id") REFERENCES "auth_user" ("id") DEFERRABLE INITIALLY DEFERRED; (params [])
+[19/Nov/2017 11:44:48] DEBUG [django.db.backends:90] (0.001) ALTER TABLE "user_userprofile" ADD CONSTRAINT "user_userprofile_user_id_2474538d_fk_auth_user_id" FOREIGN KEY ("user_id") REFERENCES "auth_user" ("id") DEFERRABLE INITIALLY DEFERRED; args=[]
+[19/Nov/2017 11:44:48] DEBUG [django.db.backends.schema:103] CREATE INDEX "user_userprofile_registration_number_c22ebc0e_like" ON "user_userprofile" ("registration_number" varchar_pattern_ops); (params [])
+[19/Nov/2017 11:44:48] DEBUG [django.db.backends:90] (0.073) CREATE INDEX "user_userprofile_registration_number_c22ebc0e_like" ON "user_userprofile" ("registration_number" varchar_pattern_ops); args=[]
+[19/Nov/2017 11:44:48] DEBUG [django.db.backends:90] (0.001) 
+            SELECT c.relname, c.relkind
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid); args=None
+[19/Nov/2017 11:44:48] DEBUG [django.db.backends:90] (0.000) INSERT INTO "django_migrations" ("app", "name", "applied") VALUES ('user', '0001_initial', '2017-11-19T13:44:48.607597+00:00'::timestamptz) RETURNING "django_migrations"."id"; args=('user', '0001_initial', datetime.datetime(2017, 11, 19, 13, 44, 48, 607597, tzinfo=<UTC>))
+[19/Nov/2017 11:44:48] DEBUG [django.db.backends:90] (0.001) 
+            SELECT c.relname, c.relkind
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid); args=None
+[19/Nov/2017 11:44:48] DEBUG [django.db.backends:90] (0.000) SELECT "django_migrations"."app", "django_migrations"."name" FROM "django_migrations"; args=()
+[19/Nov/2017 11:44:48] DEBUG [django.db.backends:90] (0.001) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = 'admin' AND "django_content_type"."model" = 'logentry'); args=('admin', 'logentry')
+[19/Nov/2017 11:44:48] DEBUG [django.db.backends:90] (0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = 'admin' AND "django_content_type"."model" = 'logentry'); args=('admin', 'logentry')
+[19/Nov/2017 11:44:48] DEBUG [django.db.backends:90] (0.000) INSERT INTO "django_content_type" ("app_label", "model") VALUES ('admin', 'logentry') RETURNING "django_content_type"."id"; args=('admin', 'logentry')
+[19/Nov/2017 11:44:48] DEBUG [django.db.backends:90] (0.003) SELECT "auth_permission"."content_type_id", "auth_permission"."codename" FROM "auth_permission" INNER JOIN "django_content_type" ON ("auth_permission"."content_type_id" = "django_content_type"."id") WHERE "auth_permission"."content_type_id" IN (1) ORDER BY "django_content_type"."app_label" ASC, "django_content_type"."model" ASC, "auth_permission"."codename" ASC; args=(1,)
+[19/Nov/2017 11:44:48] DEBUG [django.db.backends:90] (0.001) INSERT INTO "auth_permission" ("name", "content_type_id", "codename") VALUES ('Can add log entry', 1, 'add_logentry'), ('Can change log entry', 1, 'change_logentry'), ('Can delete log entry', 1, 'delete_logentry') RETURNING "auth_permission"."id"; args=('Can add log entry', 1, 'add_logentry', 'Can change log entry', 1, 'change_logentry', 'Can delete log entry', 1, 'delete_logentry')
+[19/Nov/2017 11:44:48] DEBUG [django.db.backends:90] (0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'admin'; args=('admin',)
+[19/Nov/2017 11:44:48] DEBUG [django.db.backends:90] (0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = 'auth' AND "django_content_type"."model" = 'user'); args=('auth', 'user')
+[19/Nov/2017 11:44:48] DEBUG [django.db.backends:90] (0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = 'auth' AND "django_content_type"."model" = 'user'); args=('auth', 'user')
+[19/Nov/2017 11:44:48] DEBUG [django.db.backends:90] (0.000) INSERT INTO "django_content_type" ("app_label", "model") VALUES ('auth', 'user') RETURNING "django_content_type"."id"; args=('auth', 'user')
+[19/Nov/2017 11:44:48] DEBUG [django.db.backends:90] (0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = 'auth' AND "django_content_type"."model" = 'permission'); args=('auth', 'permission')
+[19/Nov/2017 11:44:48] DEBUG [django.db.backends:90] (0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = 'auth' AND "django_content_type"."model" = 'permission'); args=('auth', 'permission')
+[19/Nov/2017 11:44:48] DEBUG [django.db.backends:90] (0.000) INSERT INTO "django_content_type" ("app_label", "model") VALUES ('auth', 'permission') RETURNING "django_content_type"."id"; args=('auth', 'permission')
+[19/Nov/2017 11:44:48] DEBUG [django.db.backends:90] (0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = 'auth' AND "django_content_type"."model" = 'group'); args=('auth', 'group')
+[19/Nov/2017 11:44:48] DEBUG [django.db.backends:90] (0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = 'auth' AND "django_content_type"."model" = 'group'); args=('auth', 'group')
+[19/Nov/2017 11:44:48] DEBUG [django.db.backends:90] (0.000) INSERT INTO "django_content_type" ("app_label", "model") VALUES ('auth', 'group') RETURNING "django_content_type"."id"; args=('auth', 'group')
+[19/Nov/2017 11:44:48] DEBUG [django.db.backends:90] (0.001) SELECT "auth_permission"."content_type_id", "auth_permission"."codename" FROM "auth_permission" INNER JOIN "django_content_type" ON ("auth_permission"."content_type_id" = "django_content_type"."id") WHERE "auth_permission"."content_type_id" IN (2, 3, 4) ORDER BY "django_content_type"."app_label" ASC, "django_content_type"."model" ASC, "auth_permission"."codename" ASC; args=(2, 3, 4)
+[19/Nov/2017 11:44:48] DEBUG [django.db.backends:90] (0.001) INSERT INTO "auth_permission" ("name", "content_type_id", "codename") VALUES ('Can add user', 2, 'add_user'), ('Can change user', 2, 'change_user'), ('Can delete user', 2, 'delete_user'), ('Can add permission', 3, 'add_permission'), ('Can change permission', 3, 'change_permission'), ('Can delete permission', 3, 'delete_permission'), ('Can add group', 4, 'add_group'), ('Can change group', 4, 'change_group'), ('Can delete group', 4, 'delete_group') RETURNING "auth_permission"."id"; args=('Can add user', 2, 'add_user', 'Can change user', 2, 'change_user', 'Can delete user', 2, 'delete_user', 'Can add permission', 3, 'add_permission', 'Can change permission', 3, 'change_permission', 'Can delete permission', 3, 'delete_permission', 'Can add group', 4, 'add_group', 'Can change group', 4, 'change_group', 'Can delete group', 4, 'delete_group')
+[19/Nov/2017 11:44:48] DEBUG [django.db.backends:90] (0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'auth'; args=('auth',)
+[19/Nov/2017 11:44:48] DEBUG [django.db.backends:90] (0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = 'contenttypes' AND "django_content_type"."model" = 'contenttype'); args=('contenttypes', 'contenttype')
+[19/Nov/2017 11:44:48] DEBUG [django.db.backends:90] (0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = 'contenttypes' AND "django_content_type"."model" = 'contenttype'); args=('contenttypes', 'contenttype')
+[19/Nov/2017 11:44:48] DEBUG [django.db.backends:90] (0.000) INSERT INTO "django_content_type" ("app_label", "model") VALUES ('contenttypes', 'contenttype') RETURNING "django_content_type"."id"; args=('contenttypes', 'contenttype')
+[19/Nov/2017 11:44:48] DEBUG [django.db.backends:90] (0.000) SELECT "auth_permission"."content_type_id", "auth_permission"."codename" FROM "auth_permission" INNER JOIN "django_content_type" ON ("auth_permission"."content_type_id" = "django_content_type"."id") WHERE "auth_permission"."content_type_id" IN (5) ORDER BY "django_content_type"."app_label" ASC, "django_content_type"."model" ASC, "auth_permission"."codename" ASC; args=(5,)
+[19/Nov/2017 11:44:48] DEBUG [django.db.backends:90] (0.000) INSERT INTO "auth_permission" ("name", "content_type_id", "codename") VALUES ('Can add content type', 5, 'add_contenttype'), ('Can change content type', 5, 'change_contenttype'), ('Can delete content type', 5, 'delete_contenttype') RETURNING "auth_permission"."id"; args=('Can add content type', 5, 'add_contenttype', 'Can change content type', 5, 'change_contenttype', 'Can delete content type', 5, 'delete_contenttype')
+[19/Nov/2017 11:44:48] DEBUG [django.db.backends:90] (0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'contenttypes'; args=('contenttypes',)
+[19/Nov/2017 11:44:48] DEBUG [django.db.backends:90] (0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = 'sessions' AND "django_content_type"."model" = 'session'); args=('sessions', 'session')
+[19/Nov/2017 11:44:48] DEBUG [django.db.backends:90] (0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = 'sessions' AND "django_content_type"."model" = 'session'); args=('sessions', 'session')
+[19/Nov/2017 11:44:48] DEBUG [django.db.backends:90] (0.000) INSERT INTO "django_content_type" ("app_label", "model") VALUES ('sessions', 'session') RETURNING "django_content_type"."id"; args=('sessions', 'session')
+[19/Nov/2017 11:44:48] DEBUG [django.db.backends:90] (0.001) SELECT "auth_permission"."content_type_id", "auth_permission"."codename" FROM "auth_permission" INNER JOIN "django_content_type" ON ("auth_permission"."content_type_id" = "django_content_type"."id") WHERE "auth_permission"."content_type_id" IN (6) ORDER BY "django_content_type"."app_label" ASC, "django_content_type"."model" ASC, "auth_permission"."codename" ASC; args=(6,)
+[19/Nov/2017 11:44:48] DEBUG [django.db.backends:90] (0.001) INSERT INTO "auth_permission" ("name", "content_type_id", "codename") VALUES ('Can add session', 6, 'add_session'), ('Can change session', 6, 'change_session'), ('Can delete session', 6, 'delete_session') RETURNING "auth_permission"."id"; args=('Can add session', 6, 'add_session', 'Can change session', 6, 'change_session', 'Can delete session', 6, 'delete_session')
+[19/Nov/2017 11:44:48] DEBUG [django.db.backends:90] (0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'sessions'; args=('sessions',)
+[19/Nov/2017 11:44:48] DEBUG [django.db.backends:90] (0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = 'booking' AND "django_content_type"."model" = 'building'); args=('booking', 'building')
+[19/Nov/2017 11:44:48] DEBUG [django.db.backends:90] (0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = 'booking' AND "django_content_type"."model" = 'building'); args=('booking', 'building')
+[19/Nov/2017 11:44:48] DEBUG [django.db.backends:90] (0.000) INSERT INTO "django_content_type" ("app_label", "model") VALUES ('booking', 'building') RETURNING "django_content_type"."id"; args=('booking', 'building')
+[19/Nov/2017 11:44:48] DEBUG [django.db.backends:90] (0.001) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = 'booking' AND "django_content_type"."model" = 'place'); args=('booking', 'place')
+[19/Nov/2017 11:44:48] DEBUG [django.db.backends:90] (0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = 'booking' AND "django_content_type"."model" = 'place'); args=('booking', 'place')
+[19/Nov/2017 11:44:48] DEBUG [django.db.backends:90] (0.001) INSERT INTO "django_content_type" ("app_label", "model") VALUES ('booking', 'place') RETURNING "django_content_type"."id"; args=('booking', 'place')
+[19/Nov/2017 11:44:48] DEBUG [django.db.backends:90] (0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = 'booking' AND "django_content_type"."model" = 'booktime'); args=('booking', 'booktime')
+[19/Nov/2017 11:44:48] DEBUG [django.db.backends:90] (0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = 'booking' AND "django_content_type"."model" = 'booktime'); args=('booking', 'booktime')
+[19/Nov/2017 11:44:48] DEBUG [django.db.backends:90] (0.000) INSERT INTO "django_content_type" ("app_label", "model") VALUES ('booking', 'booktime') RETURNING "django_content_type"."id"; args=('booking', 'booktime')
+[19/Nov/2017 11:44:48] DEBUG [django.db.backends:90] (0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = 'booking' AND "django_content_type"."model" = 'tag'); args=('booking', 'tag')
+[19/Nov/2017 11:44:48] DEBUG [django.db.backends:90] (0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = 'booking' AND "django_content_type"."model" = 'tag'); args=('booking', 'tag')
+[19/Nov/2017 11:44:48] DEBUG [django.db.backends:90] (0.000) INSERT INTO "django_content_type" ("app_label", "model") VALUES ('booking', 'tag') RETURNING "django_content_type"."id"; args=('booking', 'tag')
+[19/Nov/2017 11:44:48] DEBUG [django.db.backends:90] (0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = 'booking' AND "django_content_type"."model" = 'booking'); args=('booking', 'booking')
+[19/Nov/2017 11:44:48] DEBUG [django.db.backends:90] (0.001) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = 'booking' AND "django_content_type"."model" = 'booking'); args=('booking', 'booking')
+[19/Nov/2017 11:44:48] DEBUG [django.db.backends:90] (0.001) INSERT INTO "django_content_type" ("app_label", "model") VALUES ('booking', 'booking') RETURNING "django_content_type"."id"; args=('booking', 'booking')
+[19/Nov/2017 11:44:48] DEBUG [django.db.backends:90] (0.000) SELECT "auth_permission"."content_type_id", "auth_permission"."codename" FROM "auth_permission" INNER JOIN "django_content_type" ON ("auth_permission"."content_type_id" = "django_content_type"."id") WHERE "auth_permission"."content_type_id" IN (7, 8, 9, 10, 11) ORDER BY "django_content_type"."app_label" ASC, "django_content_type"."model" ASC, "auth_permission"."codename" ASC; args=(7, 8, 9, 10, 11)
+[19/Nov/2017 11:44:48] DEBUG [django.db.backends:90] (0.000) INSERT INTO "auth_permission" ("name", "content_type_id", "codename") VALUES ('Can add building', 7, 'add_building'), ('Can change building', 7, 'change_building'), ('Can delete building', 7, 'delete_building'), ('Can add place', 8, 'add_place'), ('Can change place', 8, 'change_place'), ('Can delete place', 8, 'delete_place'), ('Can add book time', 9, 'add_booktime'), ('Can change book time', 9, 'change_booktime'), ('Can delete book time', 9, 'delete_booktime'), ('Can add tag', 10, 'add_tag'), ('Can change tag', 10, 'change_tag'), ('Can delete tag', 10, 'delete_tag'), ('Can add booking', 11, 'add_booking'), ('Can change booking', 11, 'change_booking'), ('Can delete booking', 11, 'delete_booking') RETURNING "auth_permission"."id"; args=('Can add building', 7, 'add_building', 'Can change building', 7, 'change_building', 'Can delete building', 7, 'delete_building', 'Can add place', 8, 'add_place', 'Can change place', 8, 'change_place', 'Can delete place', 8, 'delete_place', 'Can add book time', 9, 'add_booktime', 'Can change book time', 9, 'change_booktime', 'Can delete book time', 9, 'delete_booktime', 'Can add tag', 10, 'add_tag', 'Can change tag', 10, 'change_tag', 'Can delete tag', 10, 'delete_tag', 'Can add booking', 11, 'add_booking', 'Can change booking', 11, 'change_booking', 'Can delete booking', 11, 'delete_booking')
+[19/Nov/2017 11:44:48] DEBUG [django.db.backends:90] (0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'booking'; args=('booking',)
+[19/Nov/2017 11:44:48] DEBUG [django.db.backends:90] (0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = 'user' AND "django_content_type"."model" = 'settings'); args=('user', 'settings')
+[19/Nov/2017 11:44:48] DEBUG [django.db.backends:90] (0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = 'user' AND "django_content_type"."model" = 'settings'); args=('user', 'settings')
+[19/Nov/2017 11:44:48] DEBUG [django.db.backends:90] (0.000) INSERT INTO "django_content_type" ("app_label", "model") VALUES ('user', 'settings') RETURNING "django_content_type"."id"; args=('user', 'settings')
+[19/Nov/2017 11:44:48] DEBUG [django.db.backends:90] (0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = 'user' AND "django_content_type"."model" = 'userprofile'); args=('user', 'userprofile')
+[19/Nov/2017 11:44:48] DEBUG [django.db.backends:90] (0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = 'user' AND "django_content_type"."model" = 'userprofile'); args=('user', 'userprofile')
+[19/Nov/2017 11:44:48] DEBUG [django.db.backends:90] (0.000) INSERT INTO "django_content_type" ("app_label", "model") VALUES ('user', 'userprofile') RETURNING "django_content_type"."id"; args=('user', 'userprofile')
+[19/Nov/2017 11:44:48] DEBUG [django.db.backends:90] (0.001) SELECT "auth_permission"."content_type_id", "auth_permission"."codename" FROM "auth_permission" INNER JOIN "django_content_type" ON ("auth_permission"."content_type_id" = "django_content_type"."id") WHERE "auth_permission"."content_type_id" IN (12, 13) ORDER BY "django_content_type"."app_label" ASC, "django_content_type"."model" ASC, "auth_permission"."codename" ASC; args=(12, 13)
+[19/Nov/2017 11:44:48] DEBUG [django.db.backends:90] (0.001) INSERT INTO "auth_permission" ("name", "content_type_id", "codename") VALUES ('Can add settings', 12, 'add_settings'), ('Can change settings', 12, 'change_settings'), ('Can delete settings', 12, 'delete_settings'), ('Can add user profile', 13, 'add_userprofile'), ('Can change user profile', 13, 'change_userprofile'), ('Can delete user profile', 13, 'delete_userprofile') RETURNING "auth_permission"."id"; args=('Can add settings', 12, 'add_settings', 'Can change settings', 12, 'change_settings', 'Can delete settings', 12, 'delete_settings', 'Can add user profile', 13, 'add_userprofile', 'Can change user profile', 13, 'change_userprofile', 'Can delete user profile', 13, 'delete_userprofile')
+[19/Nov/2017 11:44:48] DEBUG [django.db.backends:90] (0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'user'; args=('user',)
+[19/Nov/2017 11:44:50] DEBUG [django.db.backends:90] (0.004) 
+            SELECT c.relname, c.relkind
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid); args=None
+[19/Nov/2017 11:44:50] DEBUG [django.db.backends:90] (0.004) SELECT "django_migrations"."app", "django_migrations"."name" FROM "django_migrations"; args=()
+[19/Nov/2017 12:24:58] DEBUG [django.db.backends:90] (0.002) 
+            SELECT c.relname, c.relkind
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid); args=None
+[19/Nov/2017 12:24:58] DEBUG [django.db.backends.schema:103] CREATE TABLE "django_migrations" ("id" serial NOT NULL PRIMARY KEY, "app" varchar(255) NOT NULL, "name" varchar(255) NOT NULL, "applied" timestamp with time zone NOT NULL); (params None)
+[19/Nov/2017 12:24:58] DEBUG [django.db.backends:90] (0.080) CREATE TABLE "django_migrations" ("id" serial NOT NULL PRIMARY KEY, "app" varchar(255) NOT NULL, "name" varchar(255) NOT NULL, "applied" timestamp with time zone NOT NULL); args=None
+[19/Nov/2017 12:24:58] DEBUG [django.db.backends:90] (0.000) SELECT "django_migrations"."app", "django_migrations"."name" FROM "django_migrations"; args=()
+[19/Nov/2017 12:24:59] DEBUG [django.db.backends:90] (0.003) 
+            SELECT c.relname, c.relkind
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid); args=None
+[19/Nov/2017 12:24:59] DEBUG [django.db.backends:90] (0.001) SELECT "django_migrations"."app", "django_migrations"."name" FROM "django_migrations"; args=()
+[19/Nov/2017 12:24:59] DEBUG [django.db.backends:90] (0.001) 
+            SELECT c.relname, c.relkind
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid); args=None
+[19/Nov/2017 12:24:59] DEBUG [django.db.backends:90] (0.000) SELECT "django_migrations"."app", "django_migrations"."name" FROM "django_migrations"; args=()
+[19/Nov/2017 12:24:59] DEBUG [django.db.backends.schema:103] CREATE TABLE "django_content_type" ("id" serial NOT NULL PRIMARY KEY, "name" varchar(100) NOT NULL, "app_label" varchar(100) NOT NULL, "model" varchar(100) NOT NULL); (params None)
+[19/Nov/2017 12:24:59] DEBUG [django.db.backends:90] (0.029) CREATE TABLE "django_content_type" ("id" serial NOT NULL PRIMARY KEY, "name" varchar(100) NOT NULL, "app_label" varchar(100) NOT NULL, "model" varchar(100) NOT NULL); args=None
+[19/Nov/2017 12:24:59] DEBUG [django.db.backends.schema:103] ALTER TABLE "django_content_type" ADD CONSTRAINT "django_content_type_app_label_76bd3d3b_uniq" UNIQUE ("app_label", "model"); (params [])
+[19/Nov/2017 12:24:59] DEBUG [django.db.backends:90] (0.035) ALTER TABLE "django_content_type" ADD CONSTRAINT "django_content_type_app_label_76bd3d3b_uniq" UNIQUE ("app_label", "model"); args=[]
+[19/Nov/2017 12:24:59] DEBUG [django.db.backends:90] (0.001) 
+            SELECT c.relname, c.relkind
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid); args=None
+[19/Nov/2017 12:24:59] DEBUG [django.db.backends:90] (0.001) INSERT INTO "django_migrations" ("app", "name", "applied") VALUES ('contenttypes', '0001_initial', '2017-11-19T14:24:59.427516+00:00'::timestamptz) RETURNING "django_migrations"."id"; args=('contenttypes', '0001_initial', datetime.datetime(2017, 11, 19, 14, 24, 59, 427516, tzinfo=<UTC>))
+[19/Nov/2017 12:24:59] DEBUG [django.db.backends.schema:103] CREATE TABLE "auth_permission" ("id" serial NOT NULL PRIMARY KEY, "name" varchar(50) NOT NULL, "content_type_id" integer NOT NULL, "codename" varchar(100) NOT NULL); (params None)
+[19/Nov/2017 12:24:59] DEBUG [django.db.backends:90] (0.041) CREATE TABLE "auth_permission" ("id" serial NOT NULL PRIMARY KEY, "name" varchar(50) NOT NULL, "content_type_id" integer NOT NULL, "codename" varchar(100) NOT NULL); args=None
+[19/Nov/2017 12:24:59] DEBUG [django.db.backends.schema:103] CREATE TABLE "auth_group" ("id" serial NOT NULL PRIMARY KEY, "name" varchar(80) NOT NULL UNIQUE); (params None)
+[19/Nov/2017 12:24:59] DEBUG [django.db.backends:90] (0.062) CREATE TABLE "auth_group" ("id" serial NOT NULL PRIMARY KEY, "name" varchar(80) NOT NULL UNIQUE); args=None
+[19/Nov/2017 12:24:59] DEBUG [django.db.backends.schema:103] CREATE TABLE "auth_group_permissions" ("id" serial NOT NULL PRIMARY KEY, "group_id" integer NOT NULL, "permission_id" integer NOT NULL); (params None)
+[19/Nov/2017 12:24:59] DEBUG [django.db.backends:90] (0.020) CREATE TABLE "auth_group_permissions" ("id" serial NOT NULL PRIMARY KEY, "group_id" integer NOT NULL, "permission_id" integer NOT NULL); args=None
+[19/Nov/2017 12:24:59] DEBUG [django.db.backends.schema:103] CREATE TABLE "auth_user" ("id" serial NOT NULL PRIMARY KEY, "password" varchar(128) NOT NULL, "last_login" timestamp with time zone NOT NULL, "is_superuser" boolean NOT NULL, "username" varchar(30) NOT NULL UNIQUE, "first_name" varchar(30) NOT NULL, "last_name" varchar(30) NOT NULL, "email" varchar(75) NOT NULL, "is_staff" boolean NOT NULL, "is_active" boolean NOT NULL, "date_joined" timestamp with time zone NOT NULL); (params None)
+[19/Nov/2017 12:24:59] DEBUG [django.db.backends:90] (0.048) CREATE TABLE "auth_user" ("id" serial NOT NULL PRIMARY KEY, "password" varchar(128) NOT NULL, "last_login" timestamp with time zone NOT NULL, "is_superuser" boolean NOT NULL, "username" varchar(30) NOT NULL UNIQUE, "first_name" varchar(30) NOT NULL, "last_name" varchar(30) NOT NULL, "email" varchar(75) NOT NULL, "is_staff" boolean NOT NULL, "is_active" boolean NOT NULL, "date_joined" timestamp with time zone NOT NULL); args=None
+[19/Nov/2017 12:24:59] DEBUG [django.db.backends.schema:103] CREATE TABLE "auth_user_groups" ("id" serial NOT NULL PRIMARY KEY, "user_id" integer NOT NULL, "group_id" integer NOT NULL); (params None)
+[19/Nov/2017 12:24:59] DEBUG [django.db.backends:90] (0.032) CREATE TABLE "auth_user_groups" ("id" serial NOT NULL PRIMARY KEY, "user_id" integer NOT NULL, "group_id" integer NOT NULL); args=None
+[19/Nov/2017 12:24:59] DEBUG [django.db.backends.schema:103] CREATE TABLE "auth_user_user_permissions" ("id" serial NOT NULL PRIMARY KEY, "user_id" integer NOT NULL, "permission_id" integer NOT NULL); (params None)
+[19/Nov/2017 12:24:59] DEBUG [django.db.backends:90] (0.021) CREATE TABLE "auth_user_user_permissions" ("id" serial NOT NULL PRIMARY KEY, "user_id" integer NOT NULL, "permission_id" integer NOT NULL); args=None
+[19/Nov/2017 12:24:59] DEBUG [django.db.backends.schema:103] ALTER TABLE "auth_permission" ADD CONSTRAINT "auth_permiss_content_type_id_2f476e4b_fk_django_content_type_id" FOREIGN KEY ("content_type_id") REFERENCES "django_content_type" ("id") DEFERRABLE INITIALLY DEFERRED; (params [])
+[19/Nov/2017 12:24:59] DEBUG [django.db.backends:90] (0.002) ALTER TABLE "auth_permission" ADD CONSTRAINT "auth_permiss_content_type_id_2f476e4b_fk_django_content_type_id" FOREIGN KEY ("content_type_id") REFERENCES "django_content_type" ("id") DEFERRABLE INITIALLY DEFERRED; args=[]
+[19/Nov/2017 12:24:59] DEBUG [django.db.backends.schema:103] ALTER TABLE "auth_permission" ADD CONSTRAINT "auth_permission_content_type_id_01ab375a_uniq" UNIQUE ("content_type_id", "codename"); (params [])
+[19/Nov/2017 12:24:59] DEBUG [django.db.backends:90] (0.030) ALTER TABLE "auth_permission" ADD CONSTRAINT "auth_permission_content_type_id_01ab375a_uniq" UNIQUE ("content_type_id", "codename"); args=[]
+[19/Nov/2017 12:24:59] DEBUG [django.db.backends.schema:103] CREATE INDEX "auth_permission_417f1b1c" ON "auth_permission" ("content_type_id"); (params [])
+[19/Nov/2017 12:24:59] DEBUG [django.db.backends:90] (0.022) CREATE INDEX "auth_permission_417f1b1c" ON "auth_permission" ("content_type_id"); args=[]
+[19/Nov/2017 12:24:59] DEBUG [django.db.backends.schema:103] CREATE INDEX "auth_group_name_a6ea08ec_like" ON "auth_group" ("name" varchar_pattern_ops); (params [])
+[19/Nov/2017 12:24:59] DEBUG [django.db.backends:90] (0.027) CREATE INDEX "auth_group_name_a6ea08ec_like" ON "auth_group" ("name" varchar_pattern_ops); args=[]
+[19/Nov/2017 12:24:59] DEBUG [django.db.backends.schema:103] ALTER TABLE "auth_group_permissions" ADD CONSTRAINT "auth_group_permissions_group_id_b120cbf9_fk_auth_group_id" FOREIGN KEY ("group_id") REFERENCES "auth_group" ("id") DEFERRABLE INITIALLY DEFERRED; (params [])
+[19/Nov/2017 12:24:59] DEBUG [django.db.backends:90] (0.001) ALTER TABLE "auth_group_permissions" ADD CONSTRAINT "auth_group_permissions_group_id_b120cbf9_fk_auth_group_id" FOREIGN KEY ("group_id") REFERENCES "auth_group" ("id") DEFERRABLE INITIALLY DEFERRED; args=[]
+[19/Nov/2017 12:24:59] DEBUG [django.db.backends.schema:103] ALTER TABLE "auth_group_permissions" ADD CONSTRAINT "auth_group_permiss_permission_id_84c5c92e_fk_auth_permission_id" FOREIGN KEY ("permission_id") REFERENCES "auth_permission" ("id") DEFERRABLE INITIALLY DEFERRED; (params [])
+[19/Nov/2017 12:24:59] DEBUG [django.db.backends:90] (0.001) ALTER TABLE "auth_group_permissions" ADD CONSTRAINT "auth_group_permiss_permission_id_84c5c92e_fk_auth_permission_id" FOREIGN KEY ("permission_id") REFERENCES "auth_permission" ("id") DEFERRABLE INITIALLY DEFERRED; args=[]
+[19/Nov/2017 12:24:59] DEBUG [django.db.backends.schema:103] ALTER TABLE "auth_group_permissions" ADD CONSTRAINT "auth_group_permissions_group_id_0cd325b0_uniq" UNIQUE ("group_id", "permission_id"); (params [])
+[19/Nov/2017 12:24:59] DEBUG [django.db.backends:90] (0.025) ALTER TABLE "auth_group_permissions" ADD CONSTRAINT "auth_group_permissions_group_id_0cd325b0_uniq" UNIQUE ("group_id", "permission_id"); args=[]
+[19/Nov/2017 12:24:59] DEBUG [django.db.backends.schema:103] CREATE INDEX "auth_group_permissions_0e939a4f" ON "auth_group_permissions" ("group_id"); (params [])
+[19/Nov/2017 12:24:59] DEBUG [django.db.backends:90] (0.027) CREATE INDEX "auth_group_permissions_0e939a4f" ON "auth_group_permissions" ("group_id"); args=[]
+[19/Nov/2017 12:24:59] DEBUG [django.db.backends.schema:103] CREATE INDEX "auth_group_permissions_8373b171" ON "auth_group_permissions" ("permission_id"); (params [])
+[19/Nov/2017 12:24:59] DEBUG [django.db.backends:90] (0.027) CREATE INDEX "auth_group_permissions_8373b171" ON "auth_group_permissions" ("permission_id"); args=[]
+[19/Nov/2017 12:24:59] DEBUG [django.db.backends.schema:103] CREATE INDEX "auth_user_username_6821ab7c_like" ON "auth_user" ("username" varchar_pattern_ops); (params [])
+[19/Nov/2017 12:24:59] DEBUG [django.db.backends:90] (0.042) CREATE INDEX "auth_user_username_6821ab7c_like" ON "auth_user" ("username" varchar_pattern_ops); args=[]
+[19/Nov/2017 12:24:59] DEBUG [django.db.backends.schema:103] ALTER TABLE "auth_user_groups" ADD CONSTRAINT "auth_user_groups_user_id_6a12ed8b_fk_auth_user_id" FOREIGN KEY ("user_id") REFERENCES "auth_user" ("id") DEFERRABLE INITIALLY DEFERRED; (params [])
+[19/Nov/2017 12:24:59] DEBUG [django.db.backends:90] (0.001) ALTER TABLE "auth_user_groups" ADD CONSTRAINT "auth_user_groups_user_id_6a12ed8b_fk_auth_user_id" FOREIGN KEY ("user_id") REFERENCES "auth_user" ("id") DEFERRABLE INITIALLY DEFERRED; args=[]
+[19/Nov/2017 12:24:59] DEBUG [django.db.backends.schema:103] ALTER TABLE "auth_user_groups" ADD CONSTRAINT "auth_user_groups_group_id_97559544_fk_auth_group_id" FOREIGN KEY ("group_id") REFERENCES "auth_group" ("id") DEFERRABLE INITIALLY DEFERRED; (params [])
+[19/Nov/2017 12:24:59] DEBUG [django.db.backends:90] (0.001) ALTER TABLE "auth_user_groups" ADD CONSTRAINT "auth_user_groups_group_id_97559544_fk_auth_group_id" FOREIGN KEY ("group_id") REFERENCES "auth_group" ("id") DEFERRABLE INITIALLY DEFERRED; args=[]
+[19/Nov/2017 12:24:59] DEBUG [django.db.backends.schema:103] ALTER TABLE "auth_user_groups" ADD CONSTRAINT "auth_user_groups_user_id_94350c0c_uniq" UNIQUE ("user_id", "group_id"); (params [])
+[19/Nov/2017 12:24:59] DEBUG [django.db.backends:90] (0.030) ALTER TABLE "auth_user_groups" ADD CONSTRAINT "auth_user_groups_user_id_94350c0c_uniq" UNIQUE ("user_id", "group_id"); args=[]
+[19/Nov/2017 12:24:59] DEBUG [django.db.backends.schema:103] CREATE INDEX "auth_user_groups_e8701ad4" ON "auth_user_groups" ("user_id"); (params [])
+[19/Nov/2017 12:24:59] DEBUG [django.db.backends:90] (0.024) CREATE INDEX "auth_user_groups_e8701ad4" ON "auth_user_groups" ("user_id"); args=[]
+[19/Nov/2017 12:24:59] DEBUG [django.db.backends.schema:103] CREATE INDEX "auth_user_groups_0e939a4f" ON "auth_user_groups" ("group_id"); (params [])
+[19/Nov/2017 12:24:59] DEBUG [django.db.backends:90] (0.031) CREATE INDEX "auth_user_groups_0e939a4f" ON "auth_user_groups" ("group_id"); args=[]
+[19/Nov/2017 12:24:59] DEBUG [django.db.backends.schema:103] ALTER TABLE "auth_user_user_permissions" ADD CONSTRAINT "auth_user_user_permissions_user_id_a95ead1b_fk_auth_user_id" FOREIGN KEY ("user_id") REFERENCES "auth_user" ("id") DEFERRABLE INITIALLY DEFERRED; (params [])
+[19/Nov/2017 12:24:59] DEBUG [django.db.backends:90] (0.001) ALTER TABLE "auth_user_user_permissions" ADD CONSTRAINT "auth_user_user_permissions_user_id_a95ead1b_fk_auth_user_id" FOREIGN KEY ("user_id") REFERENCES "auth_user" ("id") DEFERRABLE INITIALLY DEFERRED; args=[]
+[19/Nov/2017 12:24:59] DEBUG [django.db.backends.schema:103] ALTER TABLE "auth_user_user_permissions" ADD CONSTRAINT "auth_user_user_per_permission_id_1fbb5f2c_fk_auth_permission_id" FOREIGN KEY ("permission_id") REFERENCES "auth_permission" ("id") DEFERRABLE INITIALLY DEFERRED; (params [])
+[19/Nov/2017 12:24:59] DEBUG [django.db.backends:90] (0.001) ALTER TABLE "auth_user_user_permissions" ADD CONSTRAINT "auth_user_user_per_permission_id_1fbb5f2c_fk_auth_permission_id" FOREIGN KEY ("permission_id") REFERENCES "auth_permission" ("id") DEFERRABLE INITIALLY DEFERRED; args=[]
+[19/Nov/2017 12:24:59] DEBUG [django.db.backends.schema:103] ALTER TABLE "auth_user_user_permissions" ADD CONSTRAINT "auth_user_user_permissions_user_id_14a6b632_uniq" UNIQUE ("user_id", "permission_id"); (params [])
+[19/Nov/2017 12:25:00] DEBUG [django.db.backends:90] (0.060) ALTER TABLE "auth_user_user_permissions" ADD CONSTRAINT "auth_user_user_permissions_user_id_14a6b632_uniq" UNIQUE ("user_id", "permission_id"); args=[]
+[19/Nov/2017 12:25:00] DEBUG [django.db.backends.schema:103] CREATE INDEX "auth_user_user_permissions_e8701ad4" ON "auth_user_user_permissions" ("user_id"); (params [])
+[19/Nov/2017 12:25:00] DEBUG [django.db.backends:90] (0.039) CREATE INDEX "auth_user_user_permissions_e8701ad4" ON "auth_user_user_permissions" ("user_id"); args=[]
+[19/Nov/2017 12:25:00] DEBUG [django.db.backends.schema:103] CREATE INDEX "auth_user_user_permissions_8373b171" ON "auth_user_user_permissions" ("permission_id"); (params [])
+[19/Nov/2017 12:25:00] DEBUG [django.db.backends:90] (0.039) CREATE INDEX "auth_user_user_permissions_8373b171" ON "auth_user_user_permissions" ("permission_id"); args=[]
+[19/Nov/2017 12:25:00] DEBUG [django.db.backends:90] (0.001) 
+            SELECT c.relname, c.relkind
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid); args=None
+[19/Nov/2017 12:25:00] DEBUG [django.db.backends:90] (0.000) INSERT INTO "django_migrations" ("app", "name", "applied") VALUES ('auth', '0001_initial', '2017-11-19T14:25:00.140045+00:00'::timestamptz) RETURNING "django_migrations"."id"; args=('auth', '0001_initial', datetime.datetime(2017, 11, 19, 14, 25, 0, 140045, tzinfo=<UTC>))
+[19/Nov/2017 12:25:00] DEBUG [django.db.backends.schema:103] CREATE TABLE "django_admin_log" ("id" serial NOT NULL PRIMARY KEY, "action_time" timestamp with time zone NOT NULL, "object_id" text NULL, "object_repr" varchar(200) NOT NULL, "action_flag" smallint NOT NULL CHECK ("action_flag" >= 0), "change_message" text NOT NULL, "content_type_id" integer NULL, "user_id" integer NOT NULL); (params None)
+[19/Nov/2017 12:25:00] DEBUG [django.db.backends:90] (0.064) CREATE TABLE "django_admin_log" ("id" serial NOT NULL PRIMARY KEY, "action_time" timestamp with time zone NOT NULL, "object_id" text NULL, "object_repr" varchar(200) NOT NULL, "action_flag" smallint NOT NULL CHECK ("action_flag" >= 0), "change_message" text NOT NULL, "content_type_id" integer NULL, "user_id" integer NOT NULL); args=None
+[19/Nov/2017 12:25:00] DEBUG [django.db.backends.schema:103] ALTER TABLE "django_admin_log" ADD CONSTRAINT "django_admin_content_type_id_c4bce8eb_fk_django_content_type_id" FOREIGN KEY ("content_type_id") REFERENCES "django_content_type" ("id") DEFERRABLE INITIALLY DEFERRED; (params [])
+[19/Nov/2017 12:25:00] DEBUG [django.db.backends:90] (0.001) ALTER TABLE "django_admin_log" ADD CONSTRAINT "django_admin_content_type_id_c4bce8eb_fk_django_content_type_id" FOREIGN KEY ("content_type_id") REFERENCES "django_content_type" ("id") DEFERRABLE INITIALLY DEFERRED; args=[]
+[19/Nov/2017 12:25:00] DEBUG [django.db.backends.schema:103] ALTER TABLE "django_admin_log" ADD CONSTRAINT "django_admin_log_user_id_c564eba6_fk_auth_user_id" FOREIGN KEY ("user_id") REFERENCES "auth_user" ("id") DEFERRABLE INITIALLY DEFERRED; (params [])
+[19/Nov/2017 12:25:00] DEBUG [django.db.backends:90] (0.001) ALTER TABLE "django_admin_log" ADD CONSTRAINT "django_admin_log_user_id_c564eba6_fk_auth_user_id" FOREIGN KEY ("user_id") REFERENCES "auth_user" ("id") DEFERRABLE INITIALLY DEFERRED; args=[]
+[19/Nov/2017 12:25:00] DEBUG [django.db.backends.schema:103] CREATE INDEX "django_admin_log_417f1b1c" ON "django_admin_log" ("content_type_id"); (params [])
+[19/Nov/2017 12:25:00] DEBUG [django.db.backends:90] (0.021) CREATE INDEX "django_admin_log_417f1b1c" ON "django_admin_log" ("content_type_id"); args=[]
+[19/Nov/2017 12:25:00] DEBUG [django.db.backends.schema:103] CREATE INDEX "django_admin_log_e8701ad4" ON "django_admin_log" ("user_id"); (params [])
+[19/Nov/2017 12:25:00] DEBUG [django.db.backends:90] (0.030) CREATE INDEX "django_admin_log_e8701ad4" ON "django_admin_log" ("user_id"); args=[]
+[19/Nov/2017 12:25:00] DEBUG [django.db.backends:90] (0.001) 
+            SELECT c.relname, c.relkind
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid); args=None
+[19/Nov/2017 12:25:00] DEBUG [django.db.backends:90] (0.000) INSERT INTO "django_migrations" ("app", "name", "applied") VALUES ('admin', '0001_initial', '2017-11-19T14:25:00.295255+00:00'::timestamptz) RETURNING "django_migrations"."id"; args=('admin', '0001_initial', datetime.datetime(2017, 11, 19, 14, 25, 0, 295255, tzinfo=<UTC>))
+[19/Nov/2017 12:25:00] DEBUG [django.db.backends.schema:103] ALTER TABLE "django_admin_log" ALTER COLUMN "action_time" SET DEFAULT %s; (params [datetime.datetime(2017, 11, 19, 14, 25, 0, 314782, tzinfo=<UTC>)])
+[19/Nov/2017 12:25:00] DEBUG [django.db.backends:90] (0.001) ALTER TABLE "django_admin_log" ALTER COLUMN "action_time" SET DEFAULT '2017-11-19T14:25:00.314782+00:00'::timestamptz; args=[datetime.datetime(2017, 11, 19, 14, 25, 0, 314782, tzinfo=<UTC>)]
+[19/Nov/2017 12:25:00] DEBUG [django.db.backends.schema:103] ALTER TABLE "django_admin_log" ALTER COLUMN "action_time" DROP DEFAULT; (params [])
+[19/Nov/2017 12:25:00] DEBUG [django.db.backends:90] (0.001) ALTER TABLE "django_admin_log" ALTER COLUMN "action_time" DROP DEFAULT; args=[]
+[19/Nov/2017 12:25:00] DEBUG [django.db.backends:90] (0.001) 
+            SELECT c.relname, c.relkind
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid); args=None
+[19/Nov/2017 12:25:00] DEBUG [django.db.backends:90] (0.000) INSERT INTO "django_migrations" ("app", "name", "applied") VALUES ('admin', '0002_logentry_remove_auto_add', '2017-11-19T14:25:00.328063+00:00'::timestamptz) RETURNING "django_migrations"."id"; args=('admin', '0002_logentry_remove_auto_add', datetime.datetime(2017, 11, 19, 14, 25, 0, 328063, tzinfo=<UTC>))
+[19/Nov/2017 12:25:00] DEBUG [django.db.backends.schema:103] ALTER TABLE "django_content_type" ALTER COLUMN "name" DROP NOT NULL; (params [])
+[19/Nov/2017 12:25:00] DEBUG [django.db.backends:90] (0.000) ALTER TABLE "django_content_type" ALTER COLUMN "name" DROP NOT NULL; args=[]
+[19/Nov/2017 12:25:00] DEBUG [django.db.backends.schema:103] ALTER TABLE "django_content_type" DROP COLUMN "name" CASCADE; (params [])
+[19/Nov/2017 12:25:00] DEBUG [django.db.backends:90] (0.000) ALTER TABLE "django_content_type" DROP COLUMN "name" CASCADE; args=[]
+[19/Nov/2017 12:25:00] DEBUG [django.db.backends:90] (0.001) 
+            SELECT c.relname, c.relkind
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid); args=None
+[19/Nov/2017 12:25:00] DEBUG [django.db.backends:90] (0.000) INSERT INTO "django_migrations" ("app", "name", "applied") VALUES ('contenttypes', '0002_remove_content_type_name', '2017-11-19T14:25:00.394940+00:00'::timestamptz) RETURNING "django_migrations"."id"; args=('contenttypes', '0002_remove_content_type_name', datetime.datetime(2017, 11, 19, 14, 25, 0, 394940, tzinfo=<UTC>))
+[19/Nov/2017 12:25:00] DEBUG [django.db.backends.schema:103] ALTER TABLE "auth_permission" ALTER COLUMN "name" TYPE varchar(255) USING "name"::varchar(255); (params [])
+[19/Nov/2017 12:25:00] DEBUG [django.db.backends:90] (0.001) ALTER TABLE "auth_permission" ALTER COLUMN "name" TYPE varchar(255) USING "name"::varchar(255); args=[]
+[19/Nov/2017 12:25:00] DEBUG [django.db.backends:90] (0.001) 
+            SELECT c.relname, c.relkind
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid); args=None
+[19/Nov/2017 12:25:00] DEBUG [django.db.backends:90] (0.001) INSERT INTO "django_migrations" ("app", "name", "applied") VALUES ('auth', '0002_alter_permission_name_max_length', '2017-11-19T14:25:00.428268+00:00'::timestamptz) RETURNING "django_migrations"."id"; args=('auth', '0002_alter_permission_name_max_length', datetime.datetime(2017, 11, 19, 14, 25, 0, 428268, tzinfo=<UTC>))
+[19/Nov/2017 12:25:00] DEBUG [django.db.backends.schema:103] ALTER TABLE "auth_user" ALTER COLUMN "email" TYPE varchar(254) USING "email"::varchar(254); (params [])
+[19/Nov/2017 12:25:00] DEBUG [django.db.backends:90] (0.001) ALTER TABLE "auth_user" ALTER COLUMN "email" TYPE varchar(254) USING "email"::varchar(254); args=[]
+[19/Nov/2017 12:25:00] DEBUG [django.db.backends:90] (0.001) 
+            SELECT c.relname, c.relkind
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid); args=None
+[19/Nov/2017 12:25:00] DEBUG [django.db.backends:90] (0.000) INSERT INTO "django_migrations" ("app", "name", "applied") VALUES ('auth', '0003_alter_user_email_max_length', '2017-11-19T14:25:00.461577+00:00'::timestamptz) RETURNING "django_migrations"."id"; args=('auth', '0003_alter_user_email_max_length', datetime.datetime(2017, 11, 19, 14, 25, 0, 461577, tzinfo=<UTC>))
+[19/Nov/2017 12:25:00] DEBUG [django.db.backends:90] (0.001) 
+            SELECT c.relname, c.relkind
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid); args=None
+[19/Nov/2017 12:25:00] DEBUG [django.db.backends:90] (0.001) INSERT INTO "django_migrations" ("app", "name", "applied") VALUES ('auth', '0004_alter_user_username_opts', '2017-11-19T14:25:00.485574+00:00'::timestamptz) RETURNING "django_migrations"."id"; args=('auth', '0004_alter_user_username_opts', datetime.datetime(2017, 11, 19, 14, 25, 0, 485574, tzinfo=<UTC>))
+[19/Nov/2017 12:25:00] DEBUG [django.db.backends.schema:103] ALTER TABLE "auth_user" ALTER COLUMN "last_login" DROP NOT NULL; (params [])
+[19/Nov/2017 12:25:00] DEBUG [django.db.backends:90] (0.000) ALTER TABLE "auth_user" ALTER COLUMN "last_login" DROP NOT NULL; args=[]
+[19/Nov/2017 12:25:00] DEBUG [django.db.backends:90] (0.002) 
+            SELECT c.relname, c.relkind
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid); args=None
+[19/Nov/2017 12:25:00] DEBUG [django.db.backends:90] (0.000) INSERT INTO "django_migrations" ("app", "name", "applied") VALUES ('auth', '0005_alter_user_last_login_null', '2017-11-19T14:25:00.518355+00:00'::timestamptz) RETURNING "django_migrations"."id"; args=('auth', '0005_alter_user_last_login_null', datetime.datetime(2017, 11, 19, 14, 25, 0, 518355, tzinfo=<UTC>))
+[19/Nov/2017 12:25:00] DEBUG [django.db.backends:90] (0.002) 
+            SELECT c.relname, c.relkind
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid); args=None
+[19/Nov/2017 12:25:00] DEBUG [django.db.backends:90] (0.000) INSERT INTO "django_migrations" ("app", "name", "applied") VALUES ('auth', '0006_require_contenttypes_0002', '2017-11-19T14:25:00.529018+00:00'::timestamptz) RETURNING "django_migrations"."id"; args=('auth', '0006_require_contenttypes_0002', datetime.datetime(2017, 11, 19, 14, 25, 0, 529018, tzinfo=<UTC>))
+[19/Nov/2017 12:25:00] DEBUG [django.db.backends:90] (0.001) 
+            SELECT c.relname, c.relkind
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid); args=None
+[19/Nov/2017 12:25:00] DEBUG [django.db.backends:90] (0.000) INSERT INTO "django_migrations" ("app", "name", "applied") VALUES ('auth', '0007_alter_validators_add_error_messages', '2017-11-19T14:25:00.547639+00:00'::timestamptz) RETURNING "django_migrations"."id"; args=('auth', '0007_alter_validators_add_error_messages', datetime.datetime(2017, 11, 19, 14, 25, 0, 547639, tzinfo=<UTC>))
+[19/Nov/2017 12:25:00] DEBUG [django.db.backends.schema:103] ALTER TABLE "auth_user" ALTER COLUMN "username" TYPE varchar(150) USING "username"::varchar(150); (params [])
+[19/Nov/2017 12:25:00] DEBUG [django.db.backends:90] (0.034) ALTER TABLE "auth_user" ALTER COLUMN "username" TYPE varchar(150) USING "username"::varchar(150); args=[]
+[19/Nov/2017 12:25:00] DEBUG [django.db.backends:90] (0.001) 
+            SELECT c.relname, c.relkind
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid); args=None
+[19/Nov/2017 12:25:00] DEBUG [django.db.backends:90] (0.001) INSERT INTO "django_migrations" ("app", "name", "applied") VALUES ('auth', '0008_alter_user_username_max_length', '2017-11-19T14:25:00.616958+00:00'::timestamptz) RETURNING "django_migrations"."id"; args=('auth', '0008_alter_user_username_max_length', datetime.datetime(2017, 11, 19, 14, 25, 0, 616958, tzinfo=<UTC>))
+[19/Nov/2017 12:25:00] DEBUG [django.db.backends.schema:103] CREATE TABLE "django_session" ("session_key" varchar(40) NOT NULL PRIMARY KEY, "session_data" text NOT NULL, "expire_date" timestamp with time zone NOT NULL); (params None)
+[19/Nov/2017 12:25:00] DEBUG [django.db.backends:90] (0.069) CREATE TABLE "django_session" ("session_key" varchar(40) NOT NULL PRIMARY KEY, "session_data" text NOT NULL, "expire_date" timestamp with time zone NOT NULL); args=None
+[19/Nov/2017 12:25:00] DEBUG [django.db.backends.schema:103] CREATE INDEX "django_session_de54fa62" ON "django_session" ("expire_date"); (params [])
+[19/Nov/2017 12:25:00] DEBUG [django.db.backends:90] (0.044) CREATE INDEX "django_session_de54fa62" ON "django_session" ("expire_date"); args=[]
+[19/Nov/2017 12:25:00] DEBUG [django.db.backends.schema:103] CREATE INDEX "django_session_session_key_c0390e0f_like" ON "django_session" ("session_key" varchar_pattern_ops); (params [])
+[19/Nov/2017 12:25:00] DEBUG [django.db.backends:90] (0.032) CREATE INDEX "django_session_session_key_c0390e0f_like" ON "django_session" ("session_key" varchar_pattern_ops); args=[]
+[19/Nov/2017 12:25:00] DEBUG [django.db.backends:90] (0.001) 
+            SELECT c.relname, c.relkind
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid); args=None
+[19/Nov/2017 12:25:00] DEBUG [django.db.backends:90] (0.000) INSERT INTO "django_migrations" ("app", "name", "applied") VALUES ('sessions', '0001_initial', '2017-11-19T14:25:00.794422+00:00'::timestamptz) RETURNING "django_migrations"."id"; args=('sessions', '0001_initial', datetime.datetime(2017, 11, 19, 14, 25, 0, 794422, tzinfo=<UTC>))
+[19/Nov/2017 12:25:00] DEBUG [django.db.backends.schema:103] CREATE TABLE "user_settings" ("id" serial NOT NULL PRIMARY KEY, "start_semester" date NOT NULL, "end_semester" date NOT NULL); (params None)
+[19/Nov/2017 12:25:00] DEBUG [django.db.backends:90] (0.038) CREATE TABLE "user_settings" ("id" serial NOT NULL PRIMARY KEY, "start_semester" date NOT NULL, "end_semester" date NOT NULL); args=None
+[19/Nov/2017 12:25:00] DEBUG [django.db.backends.schema:103] CREATE TABLE "user_userprofile" ("id" serial NOT NULL PRIMARY KEY, "registration_number" varchar(20) NOT NULL UNIQUE, "category" varchar(20) NOT NULL, "engineering" varchar(15) NOT NULL, "user_id" integer NOT NULL UNIQUE); (params None)
+[19/Nov/2017 12:25:00] DEBUG [django.db.backends:90] (0.108) CREATE TABLE "user_userprofile" ("id" serial NOT NULL PRIMARY KEY, "registration_number" varchar(20) NOT NULL UNIQUE, "category" varchar(20) NOT NULL, "engineering" varchar(15) NOT NULL, "user_id" integer NOT NULL UNIQUE); args=None
+[19/Nov/2017 12:25:00] DEBUG [django.db.backends.schema:103] ALTER TABLE "user_userprofile" ADD CONSTRAINT "user_userprofile_user_id_2474538d_fk_auth_user_id" FOREIGN KEY ("user_id") REFERENCES "auth_user" ("id") DEFERRABLE INITIALLY DEFERRED; (params [])
+[19/Nov/2017 12:25:00] DEBUG [django.db.backends:90] (0.001) ALTER TABLE "user_userprofile" ADD CONSTRAINT "user_userprofile_user_id_2474538d_fk_auth_user_id" FOREIGN KEY ("user_id") REFERENCES "auth_user" ("id") DEFERRABLE INITIALLY DEFERRED; args=[]
+[19/Nov/2017 12:25:00] DEBUG [django.db.backends.schema:103] CREATE INDEX "user_userprofile_registration_number_c22ebc0e_like" ON "user_userprofile" ("registration_number" varchar_pattern_ops); (params [])
+[19/Nov/2017 12:25:01] DEBUG [django.db.backends:90] (0.032) CREATE INDEX "user_userprofile_registration_number_c22ebc0e_like" ON "user_userprofile" ("registration_number" varchar_pattern_ops); args=[]
+[19/Nov/2017 12:25:01] DEBUG [django.db.backends:90] (0.001) 
+            SELECT c.relname, c.relkind
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid); args=None
+[19/Nov/2017 12:25:01] DEBUG [django.db.backends:90] (0.000) INSERT INTO "django_migrations" ("app", "name", "applied") VALUES ('user', '0001_initial', '2017-11-19T14:25:01.016296+00:00'::timestamptz) RETURNING "django_migrations"."id"; args=('user', '0001_initial', datetime.datetime(2017, 11, 19, 14, 25, 1, 16296, tzinfo=<UTC>))
+[19/Nov/2017 12:25:01] DEBUG [django.db.backends:90] (0.001) 
+            SELECT c.relname, c.relkind
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid); args=None
+[19/Nov/2017 12:25:01] DEBUG [django.db.backends:90] (0.000) SELECT "django_migrations"."app", "django_migrations"."name" FROM "django_migrations"; args=()
+[19/Nov/2017 12:25:01] DEBUG [django.db.backends:90] (0.001) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = 'admin' AND "django_content_type"."model" = 'logentry'); args=('admin', 'logentry')
+[19/Nov/2017 12:25:01] DEBUG [django.db.backends:90] (0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = 'admin' AND "django_content_type"."model" = 'logentry'); args=('admin', 'logentry')
+[19/Nov/2017 12:25:01] DEBUG [django.db.backends:90] (0.001) INSERT INTO "django_content_type" ("app_label", "model") VALUES ('admin', 'logentry') RETURNING "django_content_type"."id"; args=('admin', 'logentry')
+[19/Nov/2017 12:25:01] DEBUG [django.db.backends:90] (0.001) SELECT "auth_permission"."content_type_id", "auth_permission"."codename" FROM "auth_permission" INNER JOIN "django_content_type" ON ("auth_permission"."content_type_id" = "django_content_type"."id") WHERE "auth_permission"."content_type_id" IN (1) ORDER BY "django_content_type"."app_label" ASC, "django_content_type"."model" ASC, "auth_permission"."codename" ASC; args=(1,)
+[19/Nov/2017 12:25:01] DEBUG [django.db.backends:90] (0.001) INSERT INTO "auth_permission" ("name", "content_type_id", "codename") VALUES ('Can add log entry', 1, 'add_logentry'), ('Can change log entry', 1, 'change_logentry'), ('Can delete log entry', 1, 'delete_logentry') RETURNING "auth_permission"."id"; args=('Can add log entry', 1, 'add_logentry', 'Can change log entry', 1, 'change_logentry', 'Can delete log entry', 1, 'delete_logentry')
+[19/Nov/2017 12:25:01] DEBUG [django.db.backends:90] (0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'admin'; args=('admin',)
+[19/Nov/2017 12:25:01] DEBUG [django.db.backends:90] (0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = 'auth' AND "django_content_type"."model" = 'permission'); args=('auth', 'permission')
+[19/Nov/2017 12:25:01] DEBUG [django.db.backends:90] (0.001) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = 'auth' AND "django_content_type"."model" = 'permission'); args=('auth', 'permission')
+[19/Nov/2017 12:25:01] DEBUG [django.db.backends:90] (0.001) INSERT INTO "django_content_type" ("app_label", "model") VALUES ('auth', 'permission') RETURNING "django_content_type"."id"; args=('auth', 'permission')
+[19/Nov/2017 12:25:01] DEBUG [django.db.backends:90] (0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = 'auth' AND "django_content_type"."model" = 'user'); args=('auth', 'user')
+[19/Nov/2017 12:25:01] DEBUG [django.db.backends:90] (0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = 'auth' AND "django_content_type"."model" = 'user'); args=('auth', 'user')
+[19/Nov/2017 12:25:01] DEBUG [django.db.backends:90] (0.000) INSERT INTO "django_content_type" ("app_label", "model") VALUES ('auth', 'user') RETURNING "django_content_type"."id"; args=('auth', 'user')
+[19/Nov/2017 12:25:01] DEBUG [django.db.backends:90] (0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = 'auth' AND "django_content_type"."model" = 'group'); args=('auth', 'group')
+[19/Nov/2017 12:25:01] DEBUG [django.db.backends:90] (0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = 'auth' AND "django_content_type"."model" = 'group'); args=('auth', 'group')
+[19/Nov/2017 12:25:01] DEBUG [django.db.backends:90] (0.000) INSERT INTO "django_content_type" ("app_label", "model") VALUES ('auth', 'group') RETURNING "django_content_type"."id"; args=('auth', 'group')
+[19/Nov/2017 12:25:01] DEBUG [django.db.backends:90] (0.001) SELECT "auth_permission"."content_type_id", "auth_permission"."codename" FROM "auth_permission" INNER JOIN "django_content_type" ON ("auth_permission"."content_type_id" = "django_content_type"."id") WHERE "auth_permission"."content_type_id" IN (2, 3, 4) ORDER BY "django_content_type"."app_label" ASC, "django_content_type"."model" ASC, "auth_permission"."codename" ASC; args=(2, 3, 4)
+[19/Nov/2017 12:25:01] DEBUG [django.db.backends:90] (0.001) INSERT INTO "auth_permission" ("name", "content_type_id", "codename") VALUES ('Can add permission', 2, 'add_permission'), ('Can change permission', 2, 'change_permission'), ('Can delete permission', 2, 'delete_permission'), ('Can add user', 3, 'add_user'), ('Can change user', 3, 'change_user'), ('Can delete user', 3, 'delete_user'), ('Can add group', 4, 'add_group'), ('Can change group', 4, 'change_group'), ('Can delete group', 4, 'delete_group') RETURNING "auth_permission"."id"; args=('Can add permission', 2, 'add_permission', 'Can change permission', 2, 'change_permission', 'Can delete permission', 2, 'delete_permission', 'Can add user', 3, 'add_user', 'Can change user', 3, 'change_user', 'Can delete user', 3, 'delete_user', 'Can add group', 4, 'add_group', 'Can change group', 4, 'change_group', 'Can delete group', 4, 'delete_group')
+[19/Nov/2017 12:25:01] DEBUG [django.db.backends:90] (0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'auth'; args=('auth',)
+[19/Nov/2017 12:25:01] DEBUG [django.db.backends:90] (0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = 'contenttypes' AND "django_content_type"."model" = 'contenttype'); args=('contenttypes', 'contenttype')
+[19/Nov/2017 12:25:01] DEBUG [django.db.backends:90] (0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = 'contenttypes' AND "django_content_type"."model" = 'contenttype'); args=('contenttypes', 'contenttype')
+[19/Nov/2017 12:25:01] DEBUG [django.db.backends:90] (0.000) INSERT INTO "django_content_type" ("app_label", "model") VALUES ('contenttypes', 'contenttype') RETURNING "django_content_type"."id"; args=('contenttypes', 'contenttype')
+[19/Nov/2017 12:25:01] DEBUG [django.db.backends:90] (0.000) SELECT "auth_permission"."content_type_id", "auth_permission"."codename" FROM "auth_permission" INNER JOIN "django_content_type" ON ("auth_permission"."content_type_id" = "django_content_type"."id") WHERE "auth_permission"."content_type_id" IN (5) ORDER BY "django_content_type"."app_label" ASC, "django_content_type"."model" ASC, "auth_permission"."codename" ASC; args=(5,)
+[19/Nov/2017 12:25:01] DEBUG [django.db.backends:90] (0.000) INSERT INTO "auth_permission" ("name", "content_type_id", "codename") VALUES ('Can add content type', 5, 'add_contenttype'), ('Can change content type', 5, 'change_contenttype'), ('Can delete content type', 5, 'delete_contenttype') RETURNING "auth_permission"."id"; args=('Can add content type', 5, 'add_contenttype', 'Can change content type', 5, 'change_contenttype', 'Can delete content type', 5, 'delete_contenttype')
+[19/Nov/2017 12:25:01] DEBUG [django.db.backends:90] (0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'contenttypes'; args=('contenttypes',)
+[19/Nov/2017 12:25:01] DEBUG [django.db.backends:90] (0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = 'sessions' AND "django_content_type"."model" = 'session'); args=('sessions', 'session')
+[19/Nov/2017 12:25:01] DEBUG [django.db.backends:90] (0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = 'sessions' AND "django_content_type"."model" = 'session'); args=('sessions', 'session')
+[19/Nov/2017 12:25:01] DEBUG [django.db.backends:90] (0.000) INSERT INTO "django_content_type" ("app_label", "model") VALUES ('sessions', 'session') RETURNING "django_content_type"."id"; args=('sessions', 'session')
+[19/Nov/2017 12:25:01] DEBUG [django.db.backends:90] (0.000) SELECT "auth_permission"."content_type_id", "auth_permission"."codename" FROM "auth_permission" INNER JOIN "django_content_type" ON ("auth_permission"."content_type_id" = "django_content_type"."id") WHERE "auth_permission"."content_type_id" IN (6) ORDER BY "django_content_type"."app_label" ASC, "django_content_type"."model" ASC, "auth_permission"."codename" ASC; args=(6,)
+[19/Nov/2017 12:25:01] DEBUG [django.db.backends:90] (0.000) INSERT INTO "auth_permission" ("name", "content_type_id", "codename") VALUES ('Can add session', 6, 'add_session'), ('Can change session', 6, 'change_session'), ('Can delete session', 6, 'delete_session') RETURNING "auth_permission"."id"; args=('Can add session', 6, 'add_session', 'Can change session', 6, 'change_session', 'Can delete session', 6, 'delete_session')
+[19/Nov/2017 12:25:01] DEBUG [django.db.backends:90] (0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'sessions'; args=('sessions',)
+[19/Nov/2017 12:25:01] DEBUG [django.db.backends:90] (0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = 'booking' AND "django_content_type"."model" = 'building'); args=('booking', 'building')
+[19/Nov/2017 12:25:01] DEBUG [django.db.backends:90] (0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = 'booking' AND "django_content_type"."model" = 'building'); args=('booking', 'building')
+[19/Nov/2017 12:25:01] DEBUG [django.db.backends:90] (0.000) INSERT INTO "django_content_type" ("app_label", "model") VALUES ('booking', 'building') RETURNING "django_content_type"."id"; args=('booking', 'building')
+[19/Nov/2017 12:25:01] DEBUG [django.db.backends:90] (0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = 'booking' AND "django_content_type"."model" = 'place'); args=('booking', 'place')
+[19/Nov/2017 12:25:01] DEBUG [django.db.backends:90] (0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = 'booking' AND "django_content_type"."model" = 'place'); args=('booking', 'place')
+[19/Nov/2017 12:25:01] DEBUG [django.db.backends:90] (0.000) INSERT INTO "django_content_type" ("app_label", "model") VALUES ('booking', 'place') RETURNING "django_content_type"."id"; args=('booking', 'place')
+[19/Nov/2017 12:25:01] DEBUG [django.db.backends:90] (0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = 'booking' AND "django_content_type"."model" = 'booktime'); args=('booking', 'booktime')
+[19/Nov/2017 12:25:01] DEBUG [django.db.backends:90] (0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = 'booking' AND "django_content_type"."model" = 'booktime'); args=('booking', 'booktime')
+[19/Nov/2017 12:25:01] DEBUG [django.db.backends:90] (0.000) INSERT INTO "django_content_type" ("app_label", "model") VALUES ('booking', 'booktime') RETURNING "django_content_type"."id"; args=('booking', 'booktime')
+[19/Nov/2017 12:25:01] DEBUG [django.db.backends:90] (0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = 'booking' AND "django_content_type"."model" = 'tag'); args=('booking', 'tag')
+[19/Nov/2017 12:25:01] DEBUG [django.db.backends:90] (0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = 'booking' AND "django_content_type"."model" = 'tag'); args=('booking', 'tag')
+[19/Nov/2017 12:25:01] DEBUG [django.db.backends:90] (0.000) INSERT INTO "django_content_type" ("app_label", "model") VALUES ('booking', 'tag') RETURNING "django_content_type"."id"; args=('booking', 'tag')
+[19/Nov/2017 12:25:01] DEBUG [django.db.backends:90] (0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = 'booking' AND "django_content_type"."model" = 'booking'); args=('booking', 'booking')
+[19/Nov/2017 12:25:01] DEBUG [django.db.backends:90] (0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = 'booking' AND "django_content_type"."model" = 'booking'); args=('booking', 'booking')
+[19/Nov/2017 12:25:01] DEBUG [django.db.backends:90] (0.001) INSERT INTO "django_content_type" ("app_label", "model") VALUES ('booking', 'booking') RETURNING "django_content_type"."id"; args=('booking', 'booking')
+[19/Nov/2017 12:25:01] DEBUG [django.db.backends:90] (0.001) SELECT "auth_permission"."content_type_id", "auth_permission"."codename" FROM "auth_permission" INNER JOIN "django_content_type" ON ("auth_permission"."content_type_id" = "django_content_type"."id") WHERE "auth_permission"."content_type_id" IN (7, 8, 9, 10, 11) ORDER BY "django_content_type"."app_label" ASC, "django_content_type"."model" ASC, "auth_permission"."codename" ASC; args=(7, 8, 9, 10, 11)
+[19/Nov/2017 12:25:01] DEBUG [django.db.backends:90] (0.000) INSERT INTO "auth_permission" ("name", "content_type_id", "codename") VALUES ('Can add building', 7, 'add_building'), ('Can change building', 7, 'change_building'), ('Can delete building', 7, 'delete_building'), ('Can add place', 8, 'add_place'), ('Can change place', 8, 'change_place'), ('Can delete place', 8, 'delete_place'), ('Can add book time', 9, 'add_booktime'), ('Can change book time', 9, 'change_booktime'), ('Can delete book time', 9, 'delete_booktime'), ('Can add tag', 10, 'add_tag'), ('Can change tag', 10, 'change_tag'), ('Can delete tag', 10, 'delete_tag'), ('Can add booking', 11, 'add_booking'), ('Can change booking', 11, 'change_booking'), ('Can delete booking', 11, 'delete_booking') RETURNING "auth_permission"."id"; args=('Can add building', 7, 'add_building', 'Can change building', 7, 'change_building', 'Can delete building', 7, 'delete_building', 'Can add place', 8, 'add_place', 'Can change place', 8, 'change_place', 'Can delete place', 8, 'delete_place', 'Can add book time', 9, 'add_booktime', 'Can change book time', 9, 'change_booktime', 'Can delete book time', 9, 'delete_booktime', 'Can add tag', 10, 'add_tag', 'Can change tag', 10, 'change_tag', 'Can delete tag', 10, 'delete_tag', 'Can add booking', 11, 'add_booking', 'Can change booking', 11, 'change_booking', 'Can delete booking', 11, 'delete_booking')
+[19/Nov/2017 12:25:01] DEBUG [django.db.backends:90] (0.001) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'booking'; args=('booking',)
+[19/Nov/2017 12:25:01] DEBUG [django.db.backends:90] (0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = 'user' AND "django_content_type"."model" = 'settings'); args=('user', 'settings')
+[19/Nov/2017 12:25:01] DEBUG [django.db.backends:90] (0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = 'user' AND "django_content_type"."model" = 'settings'); args=('user', 'settings')
+[19/Nov/2017 12:25:01] DEBUG [django.db.backends:90] (0.000) INSERT INTO "django_content_type" ("app_label", "model") VALUES ('user', 'settings') RETURNING "django_content_type"."id"; args=('user', 'settings')
+[19/Nov/2017 12:25:01] DEBUG [django.db.backends:90] (0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = 'user' AND "django_content_type"."model" = 'userprofile'); args=('user', 'userprofile')
+[19/Nov/2017 12:25:01] DEBUG [django.db.backends:90] (0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = 'user' AND "django_content_type"."model" = 'userprofile'); args=('user', 'userprofile')
+[19/Nov/2017 12:25:01] DEBUG [django.db.backends:90] (0.000) INSERT INTO "django_content_type" ("app_label", "model") VALUES ('user', 'userprofile') RETURNING "django_content_type"."id"; args=('user', 'userprofile')
+[19/Nov/2017 12:25:01] DEBUG [django.db.backends:90] (0.001) SELECT "auth_permission"."content_type_id", "auth_permission"."codename" FROM "auth_permission" INNER JOIN "django_content_type" ON ("auth_permission"."content_type_id" = "django_content_type"."id") WHERE "auth_permission"."content_type_id" IN (12, 13) ORDER BY "django_content_type"."app_label" ASC, "django_content_type"."model" ASC, "auth_permission"."codename" ASC; args=(12, 13)
+[19/Nov/2017 12:25:01] DEBUG [django.db.backends:90] (0.001) INSERT INTO "auth_permission" ("name", "content_type_id", "codename") VALUES ('Can add settings', 12, 'add_settings'), ('Can change settings', 12, 'change_settings'), ('Can delete settings', 12, 'delete_settings'), ('Can add user profile', 13, 'add_userprofile'), ('Can change user profile', 13, 'change_userprofile'), ('Can delete user profile', 13, 'delete_userprofile') RETURNING "auth_permission"."id"; args=('Can add settings', 12, 'add_settings', 'Can change settings', 12, 'change_settings', 'Can delete settings', 12, 'delete_settings', 'Can add user profile', 13, 'add_userprofile', 'Can change user profile', 13, 'change_userprofile', 'Can delete user profile', 13, 'delete_userprofile')
+[19/Nov/2017 12:25:01] DEBUG [django.db.backends:90] (0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'user'; args=('user',)
+[19/Nov/2017 12:25:02] DEBUG [django.db.backends:90] (0.002) 
+            SELECT c.relname, c.relkind
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid); args=None
+[19/Nov/2017 12:25:02] DEBUG [django.db.backends:90] (0.000) SELECT "django_migrations"."app", "django_migrations"."name" FROM "django_migrations"; args=()
+[19/Nov/2017 12:25:14] DEBUG [django.db.backends:90] (0.001) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."session_key" = 'nmdzcf9z15uhc9tpnuwxpb3w91py2wn6' AND "django_session"."expire_date" > '2017-11-19T14:25:14.240505+00:00'::timestamptz); args=('nmdzcf9z15uhc9tpnuwxpb3w91py2wn6', datetime.datetime(2017, 11, 19, 14, 25, 14, 240505, tzinfo=<UTC>))
+[19/Nov/2017 12:25:14] INFO [django.server:131] "GET / HTTP/1.1" 200 10154
+[19/Nov/2017 12:25:25] DEBUG [django.db.backends:90] (0.000) SELECT DISTINCT "booking_booking"."name" FROM "booking_booking" ORDER BY "booking_booking"."name" DESC; args=()
+[19/Nov/2017 12:25:25] DEBUG [django.template:929] Exception while resolving variable 'search_booking' in template 'booking/searchBookingQuery.html'.
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/site-packages/django/db/backends/utils.py", line 64, in execute
+    return self.cursor.execute(sql, params)
+psycopg2.ProgrammingError: relation "booking_booking" does not exist
+LINE 1: SELECT DISTINCT "booking_booking"."name" FROM "booking_booki...
+                                                      ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/site-packages/django/template/base.py", line 915, in _resolve_lookup
+    current = current()
+  File "/code/sas/booking/forms.py", line 24, in __init__
+    choices=Booking.get_bookings(),
+  File "/code/sas/booking/models.py", line 175, in get_bookings
+    for booking in bookings:
+  File "/usr/local/lib/python3.6/site-packages/django/db/models/query.py", line 256, in __iter__
+    self._fetch_all()
+  File "/usr/local/lib/python3.6/site-packages/django/db/models/query.py", line 1085, in _fetch_all
+    self._result_cache = list(self.iterator())
+  File "/usr/local/lib/python3.6/site-packages/django/db/models/query.py", line 109, in __iter__
+    for row in compiler.results_iter():
+  File "/usr/local/lib/python3.6/site-packages/django/db/models/sql/compiler.py", line 789, in results_iter
+    results = self.execute_sql(MULTI)
+  File "/usr/local/lib/python3.6/site-packages/django/db/models/sql/compiler.py", line 835, in execute_sql
+    cursor.execute(sql, params)
+  File "/usr/local/lib/python3.6/site-packages/django/db/backends/utils.py", line 79, in execute
+    return super(CursorDebugWrapper, self).execute(sql, params)
+  File "/usr/local/lib/python3.6/site-packages/django/db/backends/utils.py", line 64, in execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/lib/python3.6/site-packages/django/db/utils.py", line 94, in __exit__
+    six.reraise(dj_exc_type, dj_exc_value, traceback)
+  File "/usr/local/lib/python3.6/site-packages/django/utils/six.py", line 685, in reraise
+    raise value.with_traceback(tb)
+  File "/usr/local/lib/python3.6/site-packages/django/db/backends/utils.py", line 64, in execute
+    return self.cursor.execute(sql, params)
+django.db.utils.ProgrammingError: relation "booking_booking" does not exist
+LINE 1: SELECT DISTINCT "booking_booking"."name" FROM "booking_booki...
+                                                      ^
+
+[19/Nov/2017 12:25:25] ERROR [django.request:124] Internal Server Error: /booking/searchbookingg/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/site-packages/django/db/backends/utils.py", line 64, in execute
+    return self.cursor.execute(sql, params)
+psycopg2.ProgrammingError: relation "booking_booking" does not exist
+LINE 1: SELECT DISTINCT "booking_booking"."name" FROM "booking_booki...
+                                                      ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/site-packages/django/core/handlers/exception.py", line 39, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.6/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.6/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.6/site-packages/django/views/generic/base.py", line 68, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/local/lib/python3.6/site-packages/django/views/generic/base.py", line 88, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/code/sas/booking/views.py", line 208, in get
+    return render(request, self.template_name, {'search_booking': form})
+  File "/usr/local/lib/python3.6/site-packages/django/shortcuts.py", line 30, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/usr/local/lib/python3.6/site-packages/django/template/loader.py", line 68, in render_to_string
+    return template.render(context, request)
+  File "/usr/local/lib/python3.6/site-packages/django/template/backends/django.py", line 66, in render
+    return self.template.render(context)
+  File "/usr/local/lib/python3.6/site-packages/django/template/base.py", line 208, in render
+    return self._render(context)
+  File "/usr/local/lib/python3.6/site-packages/django/template/base.py", line 199, in _render
+    return self.nodelist.render(context)
+  File "/usr/local/lib/python3.6/site-packages/django/template/base.py", line 994, in render
+    bit = node.render_annotated(context)
+  File "/usr/local/lib/python3.6/site-packages/django/template/base.py", line 961, in render_annotated
+    return self.render(context)
+  File "/usr/local/lib/python3.6/site-packages/django/template/loader_tags.py", line 174, in render
+    return compiled_parent._render(context)
+  File "/usr/local/lib/python3.6/site-packages/django/template/base.py", line 199, in _render
+    return self.nodelist.render(context)
+  File "/usr/local/lib/python3.6/site-packages/django/template/base.py", line 994, in render
+    bit = node.render_annotated(context)
+  File "/usr/local/lib/python3.6/site-packages/django/template/base.py", line 961, in render_annotated
+    return self.render(context)
+  File "/usr/local/lib/python3.6/site-packages/django/template/loader_tags.py", line 70, in render
+    result = block.nodelist.render(context)
+  File "/usr/local/lib/python3.6/site-packages/django/template/base.py", line 994, in render
+    bit = node.render_annotated(context)
+  File "/usr/local/lib/python3.6/site-packages/django/template/base.py", line 961, in render_annotated
+    return self.render(context)
+  File "/usr/local/lib/python3.6/site-packages/django/template/library.py", line 202, in render
+    resolved_args, resolved_kwargs = self.get_resolved_arguments(context)
+  File "/usr/local/lib/python3.6/site-packages/django/template/library.py", line 188, in get_resolved_arguments
+    resolved_args = [var.resolve(context) for var in self.args]
+  File "/usr/local/lib/python3.6/site-packages/django/template/library.py", line 188, in <listcomp>
+    resolved_args = [var.resolve(context) for var in self.args]
+  File "/usr/local/lib/python3.6/site-packages/django/template/base.py", line 711, in resolve
+    obj = self.var.resolve(context)
+  File "/usr/local/lib/python3.6/site-packages/django/template/base.py", line 852, in resolve
+    value = self._resolve_lookup(context)
+  File "/usr/local/lib/python3.6/site-packages/django/template/base.py", line 915, in _resolve_lookup
+    current = current()
+  File "/code/sas/booking/forms.py", line 24, in __init__
+    choices=Booking.get_bookings(),
+  File "/code/sas/booking/models.py", line 175, in get_bookings
+    for booking in bookings:
+  File "/usr/local/lib/python3.6/site-packages/django/db/models/query.py", line 256, in __iter__
+    self._fetch_all()
+  File "/usr/local/lib/python3.6/site-packages/django/db/models/query.py", line 1085, in _fetch_all
+    self._result_cache = list(self.iterator())
+  File "/usr/local/lib/python3.6/site-packages/django/db/models/query.py", line 109, in __iter__
+    for row in compiler.results_iter():
+  File "/usr/local/lib/python3.6/site-packages/django/db/models/sql/compiler.py", line 789, in results_iter
+    results = self.execute_sql(MULTI)
+  File "/usr/local/lib/python3.6/site-packages/django/db/models/sql/compiler.py", line 835, in execute_sql
+    cursor.execute(sql, params)
+  File "/usr/local/lib/python3.6/site-packages/django/db/backends/utils.py", line 79, in execute
+    return super(CursorDebugWrapper, self).execute(sql, params)
+  File "/usr/local/lib/python3.6/site-packages/django/db/backends/utils.py", line 64, in execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/lib/python3.6/site-packages/django/db/utils.py", line 94, in __exit__
+    six.reraise(dj_exc_type, dj_exc_value, traceback)
+  File "/usr/local/lib/python3.6/site-packages/django/utils/six.py", line 685, in reraise
+    raise value.with_traceback(tb)
+  File "/usr/local/lib/python3.6/site-packages/django/db/backends/utils.py", line 64, in execute
+    return self.cursor.execute(sql, params)
+django.db.utils.ProgrammingError: relation "booking_booking" does not exist
+LINE 1: SELECT DISTINCT "booking_booking"."name" FROM "booking_booki...
+                                                      ^
+
+[19/Nov/2017 12:25:25] DEBUG [django.db.backends:90] (0.000) SELECT DISTINCT "booking_booking"."name" FROM "booking_booking" ORDER BY "booking_booking"."name" DESC LIMIT 21; args=()
+[19/Nov/2017 12:25:25] DEBUG [django.db.backends:90] (0.000) SELECT DISTINCT "booking_booking"."name" FROM "booking_booking" ORDER BY "booking_booking"."name" DESC LIMIT 21; args=()
+[19/Nov/2017 12:25:25] DEBUG [django.db.backends:90] (0.000) SELECT DISTINCT "booking_booking"."name" FROM "booking_booking" ORDER BY "booking_booking"."name" DESC LIMIT 21; args=()
+[19/Nov/2017 12:25:25] DEBUG [django.db.backends:90] (0.000) SELECT DISTINCT "booking_booking"."name" FROM "booking_booking" ORDER BY "booking_booking"."name" DESC LIMIT 21; args=()
+[19/Nov/2017 12:25:25] ERROR [django.server:131] "GET /booking/searchbookingg/ HTTP/1.1" 500 242425
+[19/Nov/2017 12:25:29] INFO [django.server:131] "GET / HTTP/1.1" 200 10154
+[19/Nov/2017 12:25:31] INFO [django.server:131] "GET /?showLoginModal=yes HTTP/1.1" 200 10154
+[19/Nov/2017 12:25:38] DEBUG [django.db.backends:90] (0.002) SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."username" = 'med@med.com'; args=('med@med.com',)
+[19/Nov/2017 12:25:38] INFO [django.server:131] "POST /user/login/ HTTP/1.1" 200 10382

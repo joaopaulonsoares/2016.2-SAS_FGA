@@ -5,29 +5,27 @@ python:
   - "3.5"
 
 sudo: required
-disty: trusty
 
-# command to install dependencies
+env:
+  - DOCKER_COMPOSE_VERSION=1.15.0
+
 before_install:
-    - wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-    - sudo dpkg -i --force-depends google-chrome*.deb
+  - wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+  - sudo dpkg -i --force-depends google-chrome*.deb
+  - sudo rm /usr/local/bin/docker-compose
+  - curl -L https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-`uname -s`-`uname -m` > docker-compose
+  - chmod +x docker-compose
+  - sudo mv docker-compose /usr/local/bin
+
 install:
-    - pip install --upgrade pip
-    - pip install -r requirements.txt
+    - docker-compose up --build -d
+
 before_script:
     - "export DISPLAY=:99.0"
     - "/sbin/start-stop-daemon --start --quiet --pidfile /tmp/custom_xvfb_99.pid --make-pidfile --background --exec /usr/bin/Xvfb -- :99 -ac -screen 0 1280x1024x24"
     - sleep 5
+
 # command to run tests
 script:
-    - cd sas
-    - python manage.py makemigrations user booking
-    - python manage.py migrate
-    - coverage run manage.py harvest -v 2
-    - python manage.py test
-
-after_success:
-  coveralls
-
-after_script:
-    - python manage.py test test_pep8
+    - docker-compose start
+    - docker-compose exec web python3 manage.py test
