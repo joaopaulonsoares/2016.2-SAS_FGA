@@ -59,7 +59,7 @@ ROOT_URLCONF = 'sas.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['sas/sas/templates/'],
+        'DIRS': ['sas/templates/'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
