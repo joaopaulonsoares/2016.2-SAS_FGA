@@ -4,8 +4,8 @@
     dbname: postgree
     dbuser: postgree
     dbpassword: postgree
-    django_dir: code/
-    project_path: code/
+    django_dir: /vagrant/
+    project_path: /vagrant/sas/
   remote_user: ubuntu
   tasks:
     - name: "Instalando Dependências"
@@ -17,9 +17,9 @@
         - postgresql-contrib
         - libpq-dev
         - python-psycopg2
-        - python-pip
 
     - name: Criando Base da Dados
+      become_user: root
       become: true
       become_user: postgres
       postgresql_db: name={{ dbname }}
@@ -34,16 +34,16 @@
       become_user: postgres
       postgresql_user: user={{ dbuser }} db={{ dbname }} priv=ALL
 
-    # - name: Instalando django
-    #   become: true
-    #   pip:
-    #     name: django
-    #     version: 1.11
+    - name: Instalando django
+      become: true
+      pip:
+        name: django
+        version: 1.10.2
 
-    # - name: Mudando arquivo
-    #   template:
-    #     src: templates/settings.py.j2
-    #     dest: /vagrant/djangobasico/settings.py
+    - name: Mudando arquivo
+      template:
+        src: templates/settings.py.j2
+        dest: /vagrant/sas/sas/settings.py
 
     # - name: Django makemigrations
     #   django_manage: command=makemigrations app_path={{ project_path }}
