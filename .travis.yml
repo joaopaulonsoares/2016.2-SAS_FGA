@@ -32,4 +32,4 @@ script:
 deploy:
   provider: heroku
   api_key: 4184b9dd-d4ce-4fb0-9a8f-f6ca43190757
-  app: sasfga
+  app: sasfgav0
