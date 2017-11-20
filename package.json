@@ -1,0 +1,24 @@
+{
+  "name": "sasfga",
+  "version": "1.0.0",
+  "description": "Gulp and webpack sas fga",
+  "scripts": {
+    "gulp": "gulp",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/joaopaulonsoares/2016.2-SAS_FGA"
+  },
+  "scripts": {
+    "gulp": "gulp"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "browser-sync": "^2.18.13",
+    "del": "^3.0.0",
+    "gulp": "^3.9.0",
+    "run-sequence": "^2.2.0"
+  }
+}

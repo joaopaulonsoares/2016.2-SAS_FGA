@@ -11,6 +11,10 @@ __pycache__/
 *.sqlite3
 *.sqlite3.bak
 *.egg-info/
+**/migrations/**
+!**/migrations
+!**/migrations/__init__.py
+*.log
 
 .coverage
 /sas/bin
