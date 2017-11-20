@@ -1,6 +1,6 @@
 #!/bin/bash
 apt-get update
-apt-get install -y python3-pip
+# apt-get install -y python3-pip
 # apt-get install -y vim
 # apt-get install -y python-virtualenv
 # apt-get install -y virtualenvwrapper
@@ -34,7 +34,7 @@ echo "Delete migrations"
 find . -path "*/migrations/*.pyc"  -delete
 find . -path "*/migrations/*.py" -not -name "__init__.py" -delete
 echo "Create makemigrations and migrate"
-python3 sas/manage.py makemigrations
+python3 sas/manage.py makemigrations user booking
 python3 sas/manage.py migrate
 echo "Run server"
 python3 sas/manage.py runserver 0.0.0.0:8000
