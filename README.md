@@ -1,10 +1,6 @@
 # Sistema de Alocação de Salas - SAS
 O projeto tem como finalidade desenvolver um software para o gerenciamento de espaços na universidade de Brasília, especificamente a Faculdade Gama - FGA. O trabalho está sendo desenvolvido pelos alunos do curso de Engenharia de Software que frequentam as aulas de Métodos de Desenvolvimento de Software e Gestão de Portifólios e Projetos.
 
-O status do projeto pode ser acompanhando pelos seguintes indicadores:
-
-[![Coverage Status](https://coveralls.io/repos/github/joaopaulonsoares/2016.2-SAS_FGA/badge.svg?branch=master)](https://coveralls.io/github/joaopaulonsoares/2016.2-SAS_FGA?branch=master)
-
 
 # Trabalho de GCS
 
