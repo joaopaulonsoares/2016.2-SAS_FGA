@@ -3,6 +3,7 @@
 
 ENV["LC_ALL"] = "en_US.UTF-8"
 
+# Create two different VM's
 Vagrant.configure("2") do |config|
   config.vm.define "web" do |web|
     web.vm.box = "ubuntu/xenial64"
